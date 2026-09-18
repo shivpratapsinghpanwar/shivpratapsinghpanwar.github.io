@@ -207,8 +207,8 @@ footer{
 </header>
 
 <p class="lede">
-  Everything here runs against something physical — a conveyor belt, a humanoid's feet, a Jetson board on a
-  robot at a clinic. That constraint is what the work is about. The recurring theme is not a model architecture,
+  Everything here runs against something physical — an industrial camera feed, a humanoid's feet, a Jetson
+  board on a robot at the point of care. That constraint is what the work is about. The recurring theme is not a model architecture,
   it is <b>refusing to trust a number that has not earned it</b>: the gait reward that quietly rewards marching
   in place, the validation split that shares images with training, the synthetic dataset that looks like it
   helped and did not.
@@ -438,20 +438,19 @@ footer{
 <div class="sec-rule"><span class="n">03</span><h2>Production vision systems</h2></div>
 
 <section class="proj">
-  <h3>Boulder Vision Platform</h3>
+  <h3>Multi-Model Vision Platform</h3>
   <div class="spec">
-    <span class="chip priv">private client project</span>
-    <span class="chip">Mask R-CNN · RF-DETR-Seg</span>
+    <span class="chip priv">details withheld</span>
+    <span class="chip">Mask R-CNN &middot; RF-DETR-Seg</span>
     <span class="chip">NVIDIA Triton</span>
     <span class="chip">FastAPI + React</span>
     <span class="chip">on-prem GPU</span>
   </div>
 
   <figure>
-    <svg viewBox="0 0 760 250" role="img" aria-label="Pipeline diagram: cable, RTSP and file camera sources feed a Triton model repository serving four systems — boulder sizing, foreign object detection, PPE compliance and belt health — which feed an operator dashboard. Below, a size band scale shows rocks classified against a 150 millimetre sieve threshold.">
-      <text class="t-hd" x="0" y="13">One pipeline, four systems, hot-pluggable models</text>
+    <svg viewBox="0 0 760 236" role="img" aria-label="Pipeline diagram: camera sources feed a poll-mode Triton model repository serving several independent detection systems, two live and two awaiting models, which feed an operator dashboard. Below, an immutable dataset versioning strip shows each version as a self-contained snapshot.">
+      <text class="t-hd" x="0" y="13">Several systems, one pipeline, hot-pluggable models</text>
 
-      <!-- sources -->
       <rect x="0" y="32" width="118" height="74" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
       <text class="t-lab-s" x="12" y="50" fill="var(--ink-3)">SOURCES</text>
       <text class="t-lab" x="12" y="68">device:N</text>
@@ -461,68 +460,73 @@ footer{
       <path d="M124 69 L150 69" stroke="var(--ink-3)" stroke-width="1.5"/>
       <path d="M146 65 L152 69 L146 73 Z" fill="var(--ink-3)"/>
 
-      <!-- triton -->
       <rect x="158" y="32" width="126" height="74" rx="3" fill="var(--surface)" stroke="var(--pos)" stroke-width="1.5"/>
       <text class="t-lab-s" x="170" y="50" fill="var(--pos)">TRITON</text>
       <text class="t-lab" x="170" y="68">poll-mode</text>
       <text class="t-lab" x="170" y="84">model repository</text>
-      <text class="t-lab-s" x="170" y="100">stage weights → live</text>
+      <text class="t-lab-s" x="170" y="100">stage weights &rarr; live</text>
 
       <path d="M290 69 L316 69" stroke="var(--ink-3)" stroke-width="1.5"/>
       <path d="M312 65 L318 69 L312 73 Z" fill="var(--ink-3)"/>
 
-      <!-- four systems -->
       <rect x="324" y="26" width="196" height="20" rx="2" fill="var(--pos)" opacity="0.14"/>
       <rect x="324" y="26" width="3" height="20" fill="var(--pos)"/>
-      <text class="t-lab" x="336" y="40">boulder sizing</text>
+      <text class="t-lab" x="336" y="40">system 1</text>
+      <text class="t-lab-s" x="470" y="40" fill="var(--pos)">live</text>
       <rect x="324" y="50" width="196" height="20" rx="2" fill="var(--pos)" opacity="0.14"/>
       <rect x="324" y="50" width="3" height="20" fill="var(--pos)"/>
-      <text class="t-lab" x="336" y="64">foreign object</text>
+      <text class="t-lab" x="336" y="64">system 2</text>
+      <text class="t-lab-s" x="470" y="64" fill="var(--pos)">live</text>
       <rect x="324" y="74" width="196" height="20" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
-      <text class="t-lab" x="336" y="88">PPE compliance</text>
+      <text class="t-lab" x="336" y="88">system 3</text>
       <text class="t-lab-s" x="470" y="88" fill="var(--ink-3)">awaiting</text>
       <rect x="324" y="98" width="196" height="20" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
-      <text class="t-lab" x="336" y="112">belt health</text>
+      <text class="t-lab" x="336" y="112">system 4</text>
       <text class="t-lab-s" x="470" y="112" fill="var(--ink-3)">awaiting</text>
 
       <path d="M526 69 L552 69" stroke="var(--ink-3)" stroke-width="1.5"/>
       <path d="M548 65 L554 69 L548 73 Z" fill="var(--ink-3)"/>
 
-      <!-- dashboard -->
       <rect x="560" y="32" width="200" height="74" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
       <text class="t-lab-s" x="572" y="50" fill="var(--ink-3)">OPERATOR DASHBOARD</text>
-      <text class="t-lab" x="572" y="68">live alerts · rules · WS</text>
-      <text class="t-lab" x="572" y="84">target 22 fps</text>
+      <text class="t-lab" x="572" y="68">live alerts &middot; rules &middot; WS</text>
+      <text class="t-lab" x="572" y="84">real-time frame budget</text>
       <text class="t-lab-s" x="572" y="100">React + FastAPI</text>
 
-      <!-- size band scale -->
-      <line x1="0" y1="150" x2="760" y2="150" stroke="var(--rule)" stroke-width="1"/>
-      <text class="t-lab-s" x="0" y="172" fill="var(--ink-3)">SIZING EVERY ROCK AGAINST THE SIEVE THRESHOLD</text>
+      <line x1="0" y1="150" x2="760" y2="150" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="0" y="172" fill="var(--ink-3)">IMMUTABLE DATASET VERSIONING — EVERY VERSION A SELF-CONTAINED SNAPSHOT</text>
 
-      <rect x="0" y="186" width="300" height="17" rx="2" fill="var(--pos)" opacity="0.30"/>
-      <rect x="302" y="186" width="118" height="17" rx="2" fill="var(--pos)" opacity="0.55"/>
-      <rect x="424" y="186" width="336" height="17" rx="2" fill="var(--neg)" opacity="0.55"/>
-      <line x1="421" y1="180" x2="421" y2="222" stroke="var(--neg)" stroke-width="2"/>
-      <text class="t-val" x="415" y="234" text-anchor="end" fill="var(--neg)">150 mm sieve threshold</text>
-      <text class="t-lab-s" x="12" y="198" fill="var(--ink)">passes</text>
-      <text class="t-lab-s" x="436" y="198" fill="var(--ink)">oversize — flag to operator</text>
+      <rect x="0" y="186" width="176" height="34" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="14" y="200">v0001</text>
+      <text class="t-lab-s" x="14" y="214">images + manifest + audit</text>
+      <rect x="192" y="186" width="176" height="34" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="206" y="200">v0002</text>
+      <text class="t-lab-s" x="206" y="214">+ COCO / VOC exports</text>
+      <rect x="384" y="186" width="176" height="34" rx="3" fill="var(--pos)" opacity="0.14"/>
+      <rect x="384" y="186" width="3" height="34" fill="var(--pos)"/>
+      <text class="t-lab" x="398" y="200">v0003</text>
+      <text class="t-lab-s" x="398" y="214">leakage-aware split</text>
+      <rect x="576" y="186" width="184" height="34" rx="3" fill="none" stroke="var(--rule)" stroke-dasharray="3 2"/>
+      <text class="t-lab-s" x="590" y="206" fill="var(--ink-3)">new data &rarr; next version, never a mutation</text>
     </svg>
     <figcaption>
-      <b>Plug and play by design.</b> A system with no trained model yet shows as <i>awaiting model</i> and lights
-      up the moment weights are staged into the Triton repository and bound in config. Every run is ranked on one
-      leaderboard by per-size-band mask recall, false positives and median per-frame latency — so accuracy and
-      speed are compared in a single table rather than argued about.
+      <b>Plug and play by design.</b> A system with no trained model yet shows as <i>awaiting model</i> and
+      comes online the moment weights are staged into the Triton repository — no redeploy. Every training run
+      lands on one leaderboard ranked by per-size-band mask recall, false positives and median per-frame
+      latency, so accuracy and speed are compared in a single table rather than argued about.
     </figcaption>
   </figure>
 
   <p>
-    Instance segmentation of rock on a mine conveyor belt, sized against a 150&nbsp;mm sieve threshold from the
-    masks themselves. Supporting infrastructure is the part that makes the numbers trustworthy: <b>immutable
-    dataset versioning</b> where every version is a complete self-contained snapshot (physical image copies, a
-    canonical manifest, a full audit report, and ready-to-use COCO and Pascal-VOC exports), leakage-aware
-    splitting, and hard-negative curation. Model registry is licence-constrained — AGPL frameworks are excluded
-    by client mandate, so the registry is built on permissively licensed torch/torchvision and RF-DETR-Seg only.
+    Instance segmentation with metric measurement taken from the masks themselves, served in real time on an
+    on-prem GPU server. The supporting infrastructure is the part that makes the numbers trustworthy:
+    <b>immutable dataset versioning</b> where each version is a complete self-contained snapshot — physical
+    image copies, a canonical manifest, a full audit report, and ready-to-use COCO and Pascal-VOC exports —
+    plus leakage-aware splitting and hard-negative curation. The model registry is licence-constrained by
+    design: permissively licensed components only, because deployment context can rule out copyleft
+    frameworks entirely.
   </p>
+  <p class="src">Project details and imagery withheld.</p>
 </section>
 
 <section class="proj">
@@ -611,7 +615,7 @@ footer{
 <section class="proj">
   <h3>Pediatric screening robot — clinical perception at the point of care</h3>
   <div class="spec">
-    <span class="chip priv">private client project</span>
+    <span class="chip priv">details withheld</span>
     <span class="chip">Jetson Orin Nano</span>
     <span class="chip">low-data regime</span>
     <span class="chip">FastAPI</span>
@@ -667,8 +671,7 @@ footer{
     care. Conditions are organised behind a registry so each detector is independently versioned, swappable and
     separately evaluable without touching the serving layer. The project carries its own training stack —
     augmentation, losses, metrics and callbacks — plus pinned reproducible environments and single-binary
-    packaging for field hardware with no internet connection. Client details and imagery are deliberately
-    withheld; architecture walkthrough available on request.
+    packaging for field hardware with no internet connection. Project details and imagery are deliberately withheld.
   </p>
 </section>
 
