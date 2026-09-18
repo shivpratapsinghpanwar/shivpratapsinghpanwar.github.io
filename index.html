@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Computer vision and perception engineer — humanoid reinforcement learning, production vision systems, edge inference and measured research results.">
+<meta name="author" content="Shivpratap Singh Panwar">
+<meta property="og:title" content="Shivpratap Singh Panwar — Selected Work">
+<meta property="og:description" content="Humanoid RL, production vision systems, edge inference, and research reported as measured.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128300;</text></svg>">
+<title>Shivpratap Panwar Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#EDF0F2; --surface:#FFFFFF; --surface-2:#F6F8F9;
+  --ink:#0D1319; --ink-2:#55606C; --ink-3:#7C8894;
+  --rule:#D0D8DE; --rule-2:#E3E9ED;
+  --pos:#00918A; --neg:#C04A17; --zero:#9AA5AF;
+  --accent:#00918A;
+  --font-d:'Archivo',-apple-system,'Segoe UI',sans-serif;
+  --font-b:'Source Serif 4',Georgia,serif;
+  --font-m:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1317; --surface:#161C21; --surface-2:#1B2228;
+    --ink:#E6ECF0; --ink-2:#9FACB6; --ink-3:#77848E;
+    --rule:#28323A; --rule-2:#202930;
+    --pos:#19A196; --neg:#D4652B; --zero:#6B7780;
+    --accent:#19A196;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1317; --surface:#161C21; --surface-2:#1B2228;
+  --ink:#E6ECF0; --ink-2:#9FACB6; --ink-3:#77848E;
+  --rule:#28323A; --rule-2:#202930;
+  --pos:#19A196; --neg:#D4652B; --zero:#6B7780;
+  --accent:#19A196;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:var(--font-b); font-size:16px; line-height:1.62;
+  margin:0; padding-block:0 64px; padding-left:20px; padding-right:20px;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{max-width:880px;margin:0 auto}
+
+/* ---------- masthead ---------- */
+header.mast{
+  padding-block:52px 28px; border-bottom:2px solid var(--ink);
+}
+.eyebrow{
+  font-family:var(--font-m); font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:18px;
+}
+h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(32px,6vw,52px);
+  line-height:1.04; letter-spacing:-.022em; margin:0 0 14px; text-wrap:balance;
+}
+.role{
+  font-family:var(--font-d); font-weight:500; font-size:clamp(15px,2.4vw,18px);
+  color:var(--ink-2); margin:0 0 22px; letter-spacing:-.005em;
+}
+.links{
+  display:flex; flex-wrap:wrap; gap:6px 22px;
+  font-family:var(--font-m); font-size:12.5px;
+}
+.links a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px}
+.links a:hover{border-bottom-color:var(--accent)}
+.links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.lede{
+  font-size:18.5px; line-height:1.6; max-width:63ch;
+  padding-block:30px 6px; color:var(--ink);
+}
+.lede b{font-weight:600}
+
+/* ---------- section rhythm ---------- */
+.sec-rule{
+  display:flex; align-items:baseline; gap:16px;
+  margin-block:56px 0; padding-bottom:9px; border-bottom:1px solid var(--ink);
+}
+.sec-rule .n{
+  font-family:var(--font-m); font-size:11px; color:var(--ink-3);
+  letter-spacing:.1em; flex:none;
+}
+.sec-rule h2{
+  font-family:var(--font-d); font-weight:600; font-size:20px; margin:0;
+  letter-spacing:-.012em;
+}
+
+/* ---------- project ---------- */
+.proj{padding-block:26px 6px}
+.proj h3{
+  font-family:var(--font-d); font-weight:600; font-size:23px;
+  margin:0 0 10px; letter-spacing:-.016em; line-height:1.2; text-wrap:balance;
+}
+.spec{
+  display:flex; flex-wrap:wrap; gap:5px 10px; align-items:center;
+  font-family:var(--font-m); font-size:11.5px; color:var(--ink-2);
+  margin-bottom:20px;
+}
+.spec .chip{
+  border:1px solid var(--rule); padding:2px 8px; border-radius:2px;
+  background:var(--surface-2); white-space:nowrap;
+}
+.spec .chip.live{border-color:var(--accent);color:var(--accent)}
+.spec .chip.priv{color:var(--ink-3);font-style:italic}
+.proj p{max-width:63ch;margin:0 0 15px}
+.proj p b{font-weight:600}
+.proj .src{
+  font-family:var(--font-m); font-size:12px; margin-top:4px;
+}
+.proj .src a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule)}
+.proj .src a:hover{border-bottom-color:var(--accent)}
+
+/* ---------- figure ---------- */
+figure{
+  margin:0 0 22px; background:var(--surface);
+  border:1px solid var(--rule); border-radius:3px;
+  padding:20px 20px 0; overflow-x:auto;
+}
+figure svg{display:block;width:100%;height:auto;max-width:100%;min-width:520px}
+figcaption{
+  font-family:var(--font-m); font-size:11.5px; line-height:1.55;
+  color:var(--ink-2); border-top:1px solid var(--rule-2);
+  margin-top:16px; padding-block:11px 15px;
+}
+figcaption b{color:var(--ink);font-weight:600}
+
+/* svg text roles */
+.t-lab{font-family:var(--font-m);font-size:11px;fill:var(--ink-2)}
+.t-lab-s{font-family:var(--font-m);font-size:9.5px;fill:var(--ink-3)}
+.t-val{font-family:var(--font-m);font-size:10.5px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.t-hd{font-family:var(--font-d);font-size:12px;font-weight:600;fill:var(--ink)}
+.bar:hover{opacity:.78;cursor:default}
+
+/* ---------- stat strip ---------- */
+.stats{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px; background:var(--rule); border:1px solid var(--rule);
+  margin-bottom:22px; border-radius:3px; overflow:hidden;
+}
+.stat{background:var(--surface);padding:14px 16px}
+.stat .k{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:5px;
+}
+.stat .v{
+  font-family:var(--font-d); font-size:21px; font-weight:600;
+  letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+}
+.stat .s{font-family:var(--font-m);font-size:10.5px;color:var(--ink-2);margin-top:2px}
+
+/* ---------- pubs ---------- */
+.pub{padding-block:15px;border-bottom:1px solid var(--rule-2);max-width:70ch}
+.pub:last-child{border-bottom:none}
+.pub .pt{font-size:16px;line-height:1.42;margin-bottom:5px}
+.pub .pv{font-family:var(--font-m);font-size:11.5px;color:var(--ink-2)}
+.pub .pv a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule)}
+.pub .fa{color:var(--accent);font-weight:600}
+
+footer{
+  margin-top:56px; padding-top:20px; border-top:1px solid var(--rule);
+  font-family:var(--font-m); font-size:11.5px; color:var(--ink-3);
+  display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between;
+}
+
+/* tooltip */
+#tip{
+  position:fixed; pointer-events:none; opacity:0; transition:opacity .09s;
+  background:var(--ink); color:var(--ground); font-family:var(--font-m);
+  font-size:11px; line-height:1.5; padding:7px 10px; border-radius:3px;
+  z-index:50; white-space:nowrap;
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:560px){
+  body{padding-left:16px;padding-right:16px}
+  .lede{font-size:17px}
+}
+</style>
+<style>
+  html{color-scheme:light dark}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="mast">
+  <div class="eyebrow">Selected work &nbsp;·&nbsp; 2024 – 2026</div>
+  <h1>Shivpratap Singh Panwar</h1>
+  <p class="role">Computer vision &amp; perception engineer — robotics, edge inference, medical AI</p>
+  <div class="links">
+    <a href="https://github.com/shivpratapsinghpanwar">github.com/shivpratapsinghpanwar</a>
+    <a href="https://www.linkedin.com/in/shivpratap-singh-panwar">LinkedIn</a>
+    <a href="https://orcid.org/0009-0001-4719-4944">ORCID 0009-0001-4719-4944</a>
+    <a href="mailto:shivpratapsinghpanwar19@gmail.com">shivpratapsinghpanwar19@gmail.com</a>
+  </div>
+</header>
+
+<p class="lede">
+  Everything here runs against something physical — a conveyor belt, a humanoid's feet, a Jetson board on a
+  robot at a clinic. That constraint is what the work is about. The recurring theme is not a model architecture,
+  it is <b>refusing to trust a number that has not earned it</b>: the gait reward that quietly rewards marching
+  in place, the validation split that shares images with training, the synthetic dataset that looks like it
+  helped and did not.
+</p>
+
+<!-- ============================================================ 01 -->
+<div class="sec-rule"><span class="n">01</span><h2>Humanoid locomotion</h2></div>
+
+<section class="proj">
+  <h3>G1 Robust Locomotion</h3>
+  <div class="spec">
+    <span class="chip live">public</span>
+    <span class="chip">Unitree G1 · 23-DoF</span>
+    <span class="chip">PPO / RSL-RL</span>
+    <span class="chip">MuJoCo Warp · mjlab</span>
+    <span class="chip">trained from scratch</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 268" role="img" aria-label="Gait clock timing diagram: at a walk the 0.6 second cycle has 60 percent stance with double support and no flight phase; at a run the 0.4 second cycle has 45 percent stance, double support disappears and a flight phase opens where both feet are off the ground.">
+      <text class="t-hd" x="0" y="13">Speed-adaptive gait clock — why a flight phase becomes rewardable</text>
+
+      <!-- WALK -->
+      <text class="t-lab" x="0" y="46">walk</text>
+      <text class="t-lab-s" x="0" y="60">0.6 s cycle</text>
+      <text class="t-lab-s" x="0" y="72">stance 0.60</text>
+
+      <text class="t-lab-s" x="86" y="45">L</text>
+      <rect x="100" y="36" width="186" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="288" y="36" width="122" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <rect x="412" y="36" width="186" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="600" y="36" width="122" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+
+      <text class="t-lab-s" x="86" y="70">R</text>
+      <rect x="100" y="61" width="60" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <rect x="162" y="61" width="186" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="350" y="61" width="122" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <rect x="474" y="61" width="186" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="662" y="61" width="60" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+
+      <!-- double support markers -->
+      <rect x="162" y="33" width="124" height="46" fill="none" stroke="var(--zero)" stroke-width="1" stroke-dasharray="2 2"/>
+      <text class="t-lab-s" x="224" y="92" text-anchor="middle">double support</text>
+
+      <!-- RUN -->
+      <text class="t-lab" x="0" y="146">run</text>
+      <text class="t-lab-s" x="0" y="160">0.4 s cycle</text>
+      <text class="t-lab-s" x="0" y="172">stance 0.45</text>
+
+      <text class="t-lab-s" x="86" y="145">L</text>
+      <rect x="100" y="136" width="140" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="242" y="136" width="169" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <rect x="413" y="136" width="140" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="555" y="136" width="167" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+
+      <text class="t-lab-s" x="86" y="170">R</text>
+      <rect x="100" y="161" width="14" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <rect x="256" y="161" width="140" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="116" y="161" width="138" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <rect x="398" y="161" width="171" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <rect x="571" y="161" width="140" height="15" rx="2" fill="var(--pos)"/>
+      <rect x="713" y="161" width="9" height="15" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+
+      <!-- flight phase bands -->
+      <rect x="242" y="133" width="14" height="46" fill="var(--neg)" opacity="0.16"/>
+      <rect x="242" y="133" width="14" height="46" fill="none" stroke="var(--neg)" stroke-width="1.5"/>
+      <rect x="396" y="133" width="17" height="46" fill="var(--neg)" opacity="0.16"/>
+      <rect x="396" y="133" width="17" height="46" fill="none" stroke="var(--neg)" stroke-width="1.5"/>
+      <rect x="553" y="133" width="18" height="46" fill="var(--neg)" opacity="0.16"/>
+      <rect x="553" y="133" width="18" height="46" fill="none" stroke="var(--neg)" stroke-width="1.5"/>
+      <text class="t-lab-s" x="249" y="192" text-anchor="middle" fill="var(--neg)">flight</text>
+      <text class="t-lab-s" x="404" y="192" text-anchor="middle" fill="var(--neg)">flight</text>
+      <text class="t-lab-s" x="562" y="192" text-anchor="middle" fill="var(--neg)">flight</text>
+
+      <!-- legend -->
+      <rect x="0" y="222" width="18" height="11" rx="2" fill="var(--pos)"/>
+      <text class="t-lab-s" x="24" y="231">foot in stance (loaded)</text>
+      <rect x="182" y="222" width="18" height="11" rx="2" fill="none" stroke="var(--rule)" stroke-width="1"/>
+      <text class="t-lab-s" x="206" y="231">foot in swing</text>
+      <rect x="320" y="222" width="18" height="11" fill="var(--neg)" opacity="0.16"/>
+      <rect x="320" y="222" width="18" height="11" fill="none" stroke="var(--neg)" stroke-width="1.5"/>
+      <text class="t-lab-s" x="344" y="231">both feet airborne</text>
+      <text class="t-lab-s" x="640" y="231" text-anchor="end">time →</text>
+    </svg>
+    <figcaption>
+      <b>The mechanism.</b> As commanded speed rises, <code>gait_params_at_speed</code> shortens the cycle
+      0.6&nbsp;s&nbsp;→&nbsp;0.4&nbsp;s and drops stance fraction below 0.5. Below 0.5, the two stance windows
+      stop overlapping — double support disappears and a gap opens where neither foot is loaded. Under a
+      <b>fixed</b> clock that gap can never exist, so a running gait is literally unrewardable no matter how the
+      reward is tuned. Diagram drawn from the task configuration; it is a schematic of the clock, not a capture
+      of a trained policy.
+    </figcaption>
+  </figure>
+
+  <p>
+    Stand, walk forward and backward, run, and take hits from any direction — trained from scratch, no
+    pretrained policy and no imitation data. Robustness comes from two <i>different</i> disturbances, not one:
+    instantaneous push impulses, and a <b>sustained random-heading drag</b> that holds force for seconds and
+    keeps stealing momentum. A shove and a drag fail a policy in different ways, so each gets its own curriculum,
+    layered over a three-stage command-envelope curriculum so difficulty rises on two axes at once.
+  </p>
+  <p>
+    <b>Anti-reward-hacking is a design axis.</b> Every gait reward ships alongside the term that closes its
+    exploit — marching in place, foot sliding, hard landings, posture drift. When the policy failed backward
+    pushes, it got a dedicated isolation run and a targeted curriculum fix before any retraining: debugging a
+    policy like a system rather than a slot machine. Trained end-to-end on 2×T4 with a checkpoint/resume harness
+    that survives 9–12&nbsp;h session kills.
+  </p>
+  <p class="src">source · <a href="https://github.com/shivpratapsinghpanwar/g1-robust-locomotion">github.com/shivpratapsinghpanwar/g1-robust-locomotion</a></p>
+</section>
+
+<!-- ============================================================ 02 -->
+<div class="sec-rule"><span class="n">02</span><h2>Measurement integrity</h2></div>
+
+<section class="proj">
+  <h3>Synthetic Data Factory</h3>
+  <div class="spec">
+    <span class="chip live">public</span>
+    <span class="chip">SD 1.5 + LoRA</span>
+    <span class="chip">HAM10000</span>
+    <span class="chip">3 seeds · paired arms</span>
+    <span class="chip">1,508-image held-out test</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="k">macro-F1 Δ</div><div class="v">+0.005</div><div class="s">± 0.019 — consistent with zero</div></div>
+    <div class="stat"><div class="k">accuracy Δ</div><div class="v">−0.002</div><div class="s">± 0.010 — consistent with zero</div></div>
+    <div class="stat"><div class="k">real test images</div><div class="v">1,508</div><div class="s">never touched by generation</div></div>
+    <div class="stat"><div class="k">synthetic / class</div><div class="v">400</div><div class="s">memorisation-gated</div></div>
+  </div>
+
+  <figure>
+    <svg id="sdf" viewBox="0 0 760 322" role="img" aria-label="Per-class recall change from synthetic augmentation, with standard deviation across three seeds. Melanoma gains 0.116, the largest effect, but was never augmented. Vasc, an augmented class, gains 0.061. Akiec and bcc, both augmented, lose about 0.05."></svg>
+    <figcaption>
+      <b>The result, reported as measured.</b> Rare classes marked ● were the augmentation targets. The one
+      on-target class whose gain clears its own spread in every seed is <b>vasc</b>. The largest effect in the
+      whole experiment is <b>off-target</b>: melanoma recall +0.116, a class that was <i>never augmented</i> —
+      paired with a −0.031 shift on the majority class <b>nv</b>. That signature is class rebalancing, not
+      synthetic realism. Bars show the mean paired delta over 3 seeds; whiskers show ±1 SD.
+    </figcaption>
+  </figure>
+
+  <p>
+    A delta only means something when it clears both its own spread and the class's per-image quantum
+    (1/support). Held to that rule, the honest summary of this experiment is: <b>no macro effect</b>, one small
+    real on-target gain, one small real on-target loss, and a large off-target gain with a mundane explanation.
+  </p>
+  <p>
+    Melanoma sensitivity is the clinically critical metric in this domain, and +0.116 would have been the
+    headline. The writeup declines to claim it, names the confound, and specifies the balance-matched control
+    (oversampling real rare classes) needed to separate a rebalancing effect from a realism effect. The
+    generation side is built to the same standard: every synthetic image passes memorisation gates before it may
+    be used, and each one is tracked in a provenance manifest flagged <code>synthetic: true</code>.
+  </p>
+  <p class="src">source · <a href="https://github.com/shivpratapsinghpanwar/Synthetic_Data_Factory">github.com/shivpratapsinghpanwar/Synthetic_Data_Factory</a></p>
+</section>
+
+<section class="proj">
+  <h3>data-doctor</h3>
+  <div class="spec">
+    <span class="chip live">on PyPI</span>
+    <span class="chip">Python · Pillow only</span>
+    <span class="chip">CI-gated</span>
+    <span class="chip">MIT</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 226" role="img" aria-label="Three-stage duplicate detection funnel: SHA-256 catches byte-identical copies, two perceptual hash families over eight orientations nominate candidates, and every candidate is verified on decoded pixels before it is reported.">
+      <text class="t-hd" x="0" y="13">Hashes nominate; only pixels convict</text>
+
+      <!-- stage 1 -->
+      <rect x="0" y="34" width="218" height="86" rx="3" fill="var(--surface-2)" stroke="var(--rule)" stroke-width="1"/>
+      <text class="t-lab-s" x="14" y="54" fill="var(--ink-3)">STAGE 1</text>
+      <text class="t-hd" x="14" y="74">Exact</text>
+      <text class="t-lab" x="14" y="93">SHA-256 over bytes</text>
+      <text class="t-lab-s" x="14" y="109">catches identical copies</text>
+
+      <path d="M224 77 L248 77" stroke="var(--ink-3)" stroke-width="1.5" fill="none"/>
+      <path d="M244 73 L250 77 L244 81 Z" fill="var(--ink-3)"/>
+
+      <!-- stage 2 -->
+      <rect x="256" y="34" width="218" height="86" rx="3" fill="var(--surface-2)" stroke="var(--rule)" stroke-width="1"/>
+      <text class="t-lab-s" x="270" y="54" fill="var(--ink-3)">STAGE 2 — NOMINATE</text>
+      <text class="t-hd" x="270" y="74">dHash + DCT pHash</text>
+      <text class="t-lab" x="270" y="93">all 8 dihedral orientations</text>
+      <text class="t-lab-s" x="270" y="109">16-bit quadrant bucketing</text>
+
+      <path d="M480 77 L504 77" stroke="var(--ink-3)" stroke-width="1.5" fill="none"/>
+      <path d="M500 73 L506 77 L500 81 Z" fill="var(--ink-3)"/>
+
+      <!-- stage 3 -->
+      <rect x="512" y="34" width="218" height="86" rx="3" fill="var(--surface)" stroke="var(--pos)" stroke-width="1.5"/>
+      <text class="t-lab-s" x="526" y="54" fill="var(--pos)">STAGE 3 — VERIFY</text>
+      <text class="t-hd" x="526" y="74">Decoded pixels</text>
+      <text class="t-lab" x="526" y="93">greyscale thumbnails, 8 orients</text>
+      <text class="t-lab-s" x="526" y="109">reports score + orientation</text>
+
+      <!-- rejected path -->
+      <path d="M365 122 L365 150" stroke="var(--zero)" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+      <text class="t-lab-s" x="374" y="154">hash coincidences rejected here — a nomination is not a finding</text>
+
+      <!-- outcome bar -->
+      <rect x="0" y="176" width="760" height="40" rx="3" fill="var(--neg)" opacity="0.10"/>
+      <rect x="0" y="176" width="3" height="40" fill="var(--neg)"/>
+      <text class="t-lab" x="18" y="194" fill="var(--ink)">Found in a delivered production split:</text>
+      <text class="t-val" x="18" y="210" fill="var(--neg)">81 byte-identical groups spanning train and val · 40.3% of the validation set leaked · reported recall 0.75 did not survive an honest split</text>
+    </svg>
+    <figcaption>
+      <b>Why it exists.</b> Nothing in the training stack warned. The reference model scored 0.75 recall on the
+      delivered split and substantially less on a clean one — the split itself was the bug. Three stages mean
+      every reported duplicate is a concrete, pixel-verified claim carrying its measured similarity and matching
+      orientation (<code>99.4% similar, rot90</code>), not a fuzzy-hash guess.
+    </figcaption>
+  </figure>
+
+  <p>
+    A 10-second habit instead of a post-mortem: exact duplicates, near-duplicates, train/val leakage and COCO
+    structural defects (duplicate ids, annotations referencing missing images, degenerate boxes and polygons,
+    zero-annotation images) in one command. Exit code 1 on failure, so it drops straight into CI. Rotated,
+    flipped, re-encoded and resized copies are all caught.
+  </p>
+  <p class="src">install · <a href="https://pypi.org/project/vision-data-doctor">pip install vision-data-doctor</a><br>
+    source &nbsp;· <a href="https://github.com/shivpratapsinghpanwar/data-doctor">github.com/shivpratapsinghpanwar/data-doctor</a></p>
+</section>
+
+<!-- ============================================================ 03 -->
+<div class="sec-rule"><span class="n">03</span><h2>Production vision systems</h2></div>
+
+<section class="proj">
+  <h3>Boulder Vision Platform</h3>
+  <div class="spec">
+    <span class="chip priv">private client project</span>
+    <span class="chip">Mask R-CNN · RF-DETR-Seg</span>
+    <span class="chip">NVIDIA Triton</span>
+    <span class="chip">FastAPI + React</span>
+    <span class="chip">on-prem GPU</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 250" role="img" aria-label="Pipeline diagram: cable, RTSP and file camera sources feed a Triton model repository serving four systems — boulder sizing, foreign object detection, PPE compliance and belt health — which feed an operator dashboard. Below, a size band scale shows rocks classified against a 150 millimetre sieve threshold.">
+      <text class="t-hd" x="0" y="13">One pipeline, four systems, hot-pluggable models</text>
+
+      <!-- sources -->
+      <rect x="0" y="32" width="118" height="74" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="12" y="50" fill="var(--ink-3)">SOURCES</text>
+      <text class="t-lab" x="12" y="68">device:N</text>
+      <text class="t-lab" x="12" y="84">rtsp://</text>
+      <text class="t-lab" x="12" y="100">file:</text>
+
+      <path d="M124 69 L150 69" stroke="var(--ink-3)" stroke-width="1.5"/>
+      <path d="M146 65 L152 69 L146 73 Z" fill="var(--ink-3)"/>
+
+      <!-- triton -->
+      <rect x="158" y="32" width="126" height="74" rx="3" fill="var(--surface)" stroke="var(--pos)" stroke-width="1.5"/>
+      <text class="t-lab-s" x="170" y="50" fill="var(--pos)">TRITON</text>
+      <text class="t-lab" x="170" y="68">poll-mode</text>
+      <text class="t-lab" x="170" y="84">model repository</text>
+      <text class="t-lab-s" x="170" y="100">stage weights → live</text>
+
+      <path d="M290 69 L316 69" stroke="var(--ink-3)" stroke-width="1.5"/>
+      <path d="M312 65 L318 69 L312 73 Z" fill="var(--ink-3)"/>
+
+      <!-- four systems -->
+      <rect x="324" y="26" width="196" height="20" rx="2" fill="var(--pos)" opacity="0.14"/>
+      <rect x="324" y="26" width="3" height="20" fill="var(--pos)"/>
+      <text class="t-lab" x="336" y="40">boulder sizing</text>
+      <rect x="324" y="50" width="196" height="20" rx="2" fill="var(--pos)" opacity="0.14"/>
+      <rect x="324" y="50" width="3" height="20" fill="var(--pos)"/>
+      <text class="t-lab" x="336" y="64">foreign object</text>
+      <rect x="324" y="74" width="196" height="20" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="336" y="88">PPE compliance</text>
+      <text class="t-lab-s" x="470" y="88" fill="var(--ink-3)">awaiting</text>
+      <rect x="324" y="98" width="196" height="20" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="336" y="112">belt health</text>
+      <text class="t-lab-s" x="470" y="112" fill="var(--ink-3)">awaiting</text>
+
+      <path d="M526 69 L552 69" stroke="var(--ink-3)" stroke-width="1.5"/>
+      <path d="M548 65 L554 69 L548 73 Z" fill="var(--ink-3)"/>
+
+      <!-- dashboard -->
+      <rect x="560" y="32" width="200" height="74" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="572" y="50" fill="var(--ink-3)">OPERATOR DASHBOARD</text>
+      <text class="t-lab" x="572" y="68">live alerts · rules · WS</text>
+      <text class="t-lab" x="572" y="84">target 22 fps</text>
+      <text class="t-lab-s" x="572" y="100">React + FastAPI</text>
+
+      <!-- size band scale -->
+      <line x1="0" y1="150" x2="760" y2="150" stroke="var(--rule)" stroke-width="1"/>
+      <text class="t-lab-s" x="0" y="172" fill="var(--ink-3)">SIZING EVERY ROCK AGAINST THE SIEVE THRESHOLD</text>
+
+      <rect x="0" y="186" width="300" height="17" rx="2" fill="var(--pos)" opacity="0.30"/>
+      <rect x="302" y="186" width="118" height="17" rx="2" fill="var(--pos)" opacity="0.55"/>
+      <rect x="424" y="186" width="336" height="17" rx="2" fill="var(--neg)" opacity="0.55"/>
+      <line x1="421" y1="180" x2="421" y2="222" stroke="var(--neg)" stroke-width="2"/>
+      <text class="t-val" x="415" y="234" text-anchor="end" fill="var(--neg)">150 mm sieve threshold</text>
+      <text class="t-lab-s" x="12" y="198" fill="var(--ink)">passes</text>
+      <text class="t-lab-s" x="436" y="198" fill="var(--ink)">oversize — flag to operator</text>
+    </svg>
+    <figcaption>
+      <b>Plug and play by design.</b> A system with no trained model yet shows as <i>awaiting model</i> and lights
+      up the moment weights are staged into the Triton repository and bound in config. Every run is ranked on one
+      leaderboard by per-size-band mask recall, false positives and median per-frame latency — so accuracy and
+      speed are compared in a single table rather than argued about.
+    </figcaption>
+  </figure>
+
+  <p>
+    Instance segmentation of rock on a mine conveyor belt, sized against a 150&nbsp;mm sieve threshold from the
+    masks themselves. Supporting infrastructure is the part that makes the numbers trustworthy: <b>immutable
+    dataset versioning</b> where every version is a complete self-contained snapshot (physical image copies, a
+    canonical manifest, a full audit report, and ready-to-use COCO and Pascal-VOC exports), leakage-aware
+    splitting, and hard-negative curation. Model registry is licence-constrained — AGPL frameworks are excluded
+    by client mandate, so the registry is built on permissively licensed torch/torchvision and RF-DETR-Seg only.
+  </p>
+</section>
+
+<section class="proj">
+  <h3>Multi-Service Surveillance Platform</h3>
+  <div class="spec">
+    <span class="chip priv">private</span>
+    <span class="chip">Jetson</span>
+    <span class="chip">shared-memory ring</span>
+    <span class="chip">ONNX Runtime ⇄ Triton</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 208" role="img" aria-label="Zero-copy frame bus: a capture thread writes pixels once into a pre-allocated shared memory ring; services take read-only leases and exchange frame descriptors rather than pixel copies; a slow consumer skips to the newest frame under a latest-wins policy and the skipped frames are counted.">
+      <text class="t-hd" x="0" y="13">Pixels are written once and never copied</text>
+
+      <text class="t-lab-s" x="0" y="38" fill="var(--ink-3)">CAPTURE</text>
+      <rect x="0" y="46" width="96" height="42" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="12" y="64">thread/cam</text>
+      <text class="t-lab-s" x="12" y="79">NVDEC RTSP</text>
+
+      <path d="M102 67 L126 67" stroke="var(--pos)" stroke-width="2"/>
+      <path d="M122 63 L128 67 L122 71 Z" fill="var(--pos)"/>
+      <text class="t-lab-s" x="104" y="57" fill="var(--pos)">write ×1</text>
+
+      <!-- ring slots -->
+      <text class="t-lab-s" x="136" y="38" fill="var(--ink-3)">PRE-ALLOCATED SHARED-MEMORY RING</text>
+      <rect x="136" y="46" width="52" height="42" rx="2" fill="var(--pos)" opacity="0.20" stroke="var(--pos)"/>
+      <rect x="192" y="46" width="52" height="42" rx="2" fill="var(--pos)" opacity="0.20" stroke="var(--pos)"/>
+      <rect x="248" y="46" width="52" height="42" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <rect x="304" y="46" width="52" height="42" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <rect x="360" y="46" width="52" height="42" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="162" y="71" text-anchor="middle">n</text>
+      <text class="t-lab-s" x="218" y="71" text-anchor="middle">n−1</text>
+      <text class="t-lab-s" x="274" y="71" text-anchor="middle">n−2</text>
+      <text class="t-lab-s" x="330" y="71" text-anchor="middle">n−3</text>
+      <text class="t-lab-s" x="386" y="71" text-anchor="middle">…</text>
+
+      <path d="M418 67 L442 67" stroke="var(--ink-3)" stroke-width="1.5"/>
+      <path d="M438 63 L444 67 L438 71 Z" fill="var(--ink-3)"/>
+      <text class="t-lab-s" x="420" y="57">lease</text>
+
+      <!-- services -->
+      <text class="t-lab-s" x="452" y="38" fill="var(--ink-3)">SERVICES (READ-ONLY)</text>
+      <rect x="452" y="46" width="148" height="19" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="462" y="60">ppe</text>
+      <rect x="452" y="69" width="148" height="19" rx="2" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="462" y="83">garbage</text>
+      <rect x="452" y="92" width="148" height="19" rx="2" fill="var(--neg)" opacity="0.13"/>
+      <rect x="452" y="92" width="148" height="19" rx="2" fill="none" stroke="var(--neg)" stroke-dasharray="3 2"/>
+      <text class="t-lab" x="462" y="106" fill="var(--neg)">quarantined</text>
+
+      <path d="M606 67 L630 67" stroke="var(--ink-3)" stroke-width="1.5"/>
+      <path d="M626 63 L632 67 L626 71 Z" fill="var(--ink-3)"/>
+      <text class="t-lab-s" x="608" y="57">cmds</text>
+
+      <rect x="640" y="46" width="120" height="42" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="652" y="64">renderer</text>
+      <text class="t-lab-s" x="652" y="79">only stage that draws</text>
+
+      <!-- latest wins -->
+      <rect x="0" y="136" width="760" height="56" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="16" y="158" fill="var(--ink)">Latest-wins:</text>
+      <text class="t-lab" x="108" y="158">a slow consumer skips to the newest frame — lag stays bounded instead of growing without limit.</text>
+      <text class="t-lab" x="16" y="178" fill="var(--ink)">Skips counted:</text>
+      <text class="t-lab" x="122" y="178">dropped frames appear in the stats line, so degradation is visible rather than silent.</text>
+    </svg>
+    <figcaption>
+      <b>Failure is contained, not fatal.</b> A service that throws is isolated and, after repeated failures,
+      quarantined — the pipeline keeps running without it. Services never draw on the frame they were handed;
+      they emit draw commands, so the renderer stays the single writer.
+    </figcaption>
+  </figure>
+
+  <p>
+    Frames flow capture → shared-memory ring → services → renderer with zero pixel copies: the ring is
+    pre-allocated, stages exchange frame descriptors under a lease, and sizing is explicit
+    (<code>ring_slots × max_height × max_width × 3</code> bytes per camera). Models run in-process on ONNX
+    Runtime by default and can be redirected to Triton; if the server is unreachable at startup, services fall
+    back to local inference rather than failing to start.
+  </p>
+</section>
+
+<!-- ============================================================ 04 -->
+<div class="sec-rule"><span class="n">04</span><h2>Clinical &amp; efficiency research</h2></div>
+
+<section class="proj">
+  <h3>Pediatric screening robot — clinical perception at the point of care</h3>
+  <div class="spec">
+    <span class="chip priv">private client project</span>
+    <span class="chip">Jetson Orin Nano</span>
+    <span class="chip">low-data regime</span>
+    <span class="chip">FastAPI</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 214" role="img" aria-label="Module registry architecture: a single serving layer dispatches to independently versioned clinical modules grouped by craniofacial, head and skull, and musculoskeletal domains, each with a deep learning path and a classical geometry fallback path.">
+      <text class="t-hd" x="0" y="13">A registry of independently versioned clinical modules</text>
+
+      <rect x="0" y="32" width="760" height="30" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="16" y="51" fill="var(--ink)">serving layer — one API, module dispatch, per-module versioning</text>
+
+      <path d="M160 64 L160 82" stroke="var(--ink-3)" stroke-width="1"/>
+      <path d="M380 64 L380 82" stroke="var(--ink-3)" stroke-width="1"/>
+      <path d="M600 64 L600 82" stroke="var(--ink-3)" stroke-width="1"/>
+
+      <rect x="0" y="84" width="240" height="58" rx="3" fill="var(--surface)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="14" y="102" fill="var(--ink-3)">CRANIOFACIAL</text>
+      <text class="t-lab" x="14" y="120">landmark + cleft analysis</text>
+      <text class="t-lab-s" x="14" y="134">mandible morphology</text>
+
+      <rect x="260" y="84" width="240" height="58" rx="3" fill="var(--surface)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="274" y="102" fill="var(--ink-3)">HEAD &amp; SKULL</text>
+      <text class="t-lab" x="274" y="120">circumference measurement</text>
+      <text class="t-lab-s" x="274" y="134">anthropometry from geometry</text>
+
+      <rect x="520" y="84" width="240" height="58" rx="3" fill="var(--surface)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="534" y="102" fill="var(--ink-3)">MUSCULOSKELETAL</text>
+      <text class="t-lab" x="534" y="120">limb &amp; extremity analysis</text>
+      <text class="t-lab-s" x="534" y="134">digit counting</text>
+
+      <!-- dual path -->
+      <rect x="0" y="162" width="372" height="44" rx="3" fill="var(--pos)" opacity="0.12"/>
+      <rect x="0" y="162" width="3" height="44" fill="var(--pos)"/>
+      <text class="t-lab" x="16" y="180" fill="var(--ink)">learned path</text>
+      <text class="t-lab-s" x="16" y="196">low-data / few-shot models where enough signal exists</text>
+
+      <rect x="388" y="162" width="372" height="44" rx="3" fill="var(--neg)" opacity="0.12"/>
+      <rect x="388" y="162" width="3" height="44" fill="var(--neg)"/>
+      <text class="t-lab" x="404" y="180" fill="var(--ink)">deterministic fallback</text>
+      <text class="t-lab-s" x="404" y="196">projective geometry — used where the learned model cannot be trusted</text>
+    </svg>
+    <figcaption>
+      <b>The design constraint.</b> No prior computer-vision solution existed for these conditions, and training
+      data is genuinely scarce. Rather than let an under-trained model speak with false confidence, measurable
+      quantities fall back to classical geometry — a deterministic answer beats a confident guess in a clinical
+      setting.
+    </figcaption>
+  </figure>
+
+  <p>
+    An on-robot inference server for congenital anomaly screening, targeting Jetson Orin Nano at the point of
+    care. Conditions are organised behind a registry so each detector is independently versioned, swappable and
+    separately evaluable without touching the serving layer. The project carries its own training stack —
+    augmentation, losses, metrics and callbacks — plus pinned reproducible environments and single-binary
+    packaging for field hardware with no internet connection. Client details and imagery are deliberately
+    withheld; architecture walkthrough available on request.
+  </p>
+</section>
+
+<section class="proj">
+  <h3>TernaVLM</h3>
+  <div class="spec">
+    <span class="chip priv">private — active research</span>
+    <span class="chip">BitNet b1.58 2B</span>
+    <span class="chip">SigLIP2</span>
+    <span class="chip">1.58-bit ternary</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 236" role="img" aria-label="Comparison of two LoRA formulations. Plain LoRA adds a full precision delta outside the quantiser so the deployed model is no longer ternary and merging then requantising causes a train-test mismatch. Ternary QAT LoRA quantises inside the adapted weight with a straight-through estimator, so the merge is exact.">
+      <text class="t-hd" x="0" y="13">Quantise inside the adapted weight, not around it</text>
+
+      <!-- plain lora -->
+      <rect x="0" y="32" width="368" height="92" rx="3" fill="var(--neg)" opacity="0.08"/>
+      <rect x="0" y="32" width="368" height="92" rx="3" fill="none" stroke="var(--neg)" stroke-width="1"/>
+      <text class="t-lab-s" x="16" y="52" fill="var(--neg)">PLAIN LoRA ON A TERNARY LM</text>
+      <text class="t-val" x="16" y="76" fill="var(--ink)">y = x · Q(W)ᵀ  +  s · x · (BA)ᵀ</text>
+      <rect x="150" y="84" width="152" height="18" rx="2" fill="var(--neg)" opacity="0.28"/>
+      <text class="t-lab-s" x="226" y="97" text-anchor="middle" fill="var(--ink)">this delta is full precision</text>
+      <text class="t-lab-s" x="16" y="116">deployed model is no longer ternary · merge → requantise = train/test mismatch</text>
+
+      <!-- ternary -->
+      <rect x="392" y="32" width="368" height="92" rx="3" fill="var(--pos)" opacity="0.10"/>
+      <rect x="392" y="32" width="368" height="92" rx="3" fill="none" stroke="var(--pos)" stroke-width="1.5"/>
+      <text class="t-lab-s" x="408" y="52" fill="var(--pos)">TERNARY QAT-LoRA (THIS WORK)</text>
+      <text class="t-val" x="408" y="76" fill="var(--ink)">y = Q_int8(x) · Q_ternary(W + s·BA)ᵀ</text>
+      <rect x="556" y="62" width="150" height="18" rx="2" fill="var(--pos)" opacity="0.26"/>
+      <text class="t-lab-s" x="408" y="97">straight-through estimator carries the gradient</text>
+      <text class="t-lab-s" x="408" y="116" fill="var(--ink)">merge is exact — unit-tested bit-for-bit</text>
+
+      <!-- pipeline -->
+      <line x1="0" y1="148" x2="760" y2="148" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="0" y="170" fill="var(--ink-3)">TOKEN PATH</text>
+
+      <rect x="0" y="182" width="132" height="40" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="12" y="199">SigLIP2-base</text>
+      <text class="t-lab-s" x="12" y="214">frozen · 256 px</text>
+      <path d="M138 202 L158 202" stroke="var(--ink-3)" stroke-width="1.5"/><path d="M154 198 L160 202 L154 206 Z" fill="var(--ink-3)"/>
+
+      <rect x="166" y="182" width="150" height="40" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab" x="178" y="199">pixel-shuffle 2×2</text>
+      <text class="t-lab-s" x="178" y="214">256 patches → 64 tokens</text>
+      <path d="M322 202 L342 202" stroke="var(--ink-3)" stroke-width="1.5"/><path d="M338 198 L344 202 L338 206 Z" fill="var(--ink-3)"/>
+
+      <rect x="350" y="182" width="132" height="40" rx="3" fill="var(--surface)" stroke="var(--pos)" stroke-width="1.5"/>
+      <text class="t-lab" x="362" y="199">MLP projector</text>
+      <text class="t-lab-s" x="362" y="214" fill="var(--pos)">trained</text>
+      <path d="M488 202 L508 202" stroke="var(--ink-3)" stroke-width="1.5"/><path d="M504 198 L510 202 L504 206 Z" fill="var(--ink-3)"/>
+
+      <rect x="516" y="182" width="244" height="40" rx="3" fill="var(--surface)" stroke="var(--pos)" stroke-width="1.5"/>
+      <text class="t-lab" x="528" y="199">BitNet b1.58 2B — weights ∈ {−1, 0, +1}</text>
+      <text class="t-lab-s" x="528" y="214" fill="var(--pos)">ternary QAT-LoRA · integer-only CPU kernels</text>
+    </svg>
+    <figcaption>
+      <b>Status: active research.</b> Layer code is unit-tested on CPU and staged training is underway; no
+      benchmark results are claimed yet. Ternary LMs already run fast on CPUs with integer-only kernels, but no
+      ternary <i>VLM</i> has been released — this attaches a vision encoder without ever leaving the ternary
+      regime.
+    </figcaption>
+  </figure>
+  <p>
+    Checkpoints carry only the projector, the LoRA and optimiser state, so a session resumes from the exact data
+    cursor — epoch, shard, row — and the trainer stops itself before the platform's session limit so a run never
+    dies mid-write.
+  </p>
+</section>
+
+<!-- ============================================================ 05 -->
+<div class="sec-rule"><span class="n">05</span><h2>Publications</h2></div>
+
+<div class="pub">
+  <div class="pt">KrishiDisha: Revolutionizing Agriculture with Intelligent Recommendations, Disease Detection, and Yield Prediction</div>
+  <div class="pv"><span class="fa">First author</span> · 2025 IEEE International Conference on Engineering Innovations and Technologies (ICoEIT), pp. 1028–1040 · <a href="https://doi.org/10.1109/ICoEIT63558.2025.11211713">doi.org/10.1109/ICoEIT63558.2025.11211713</a></div>
+</div>
+<div class="pub">
+  <div class="pt">Web-BCD: A Machine and Deep Learning Approach for Breast Cancer Detection</div>
+  <div class="pv">IBM Technical Report, Dec 2024 · detection accuracy 89% → 94%, ROC-AUC 0.96 · deployed live for clinician use</div>
+</div>
+<div class="pub">
+  <div class="pt">A Review on Understanding the Patterns of Student Dropout</div>
+  <div class="pv"><span class="fa">First author</span> · Studies in Smart Technologies, Springer, pp. 235–250, 2025 · <a href="https://doi.org/10.1007/978-981-97-9006-7_20">doi.org/10.1007/978-981-97-9006-7_20</a></div>
+</div>
+
+<footer>
+  <span>Ahmedabad, India · shivpratapsinghpanwar19@gmail.com</span>
+  <span>Figures are schematics of real mechanisms and charts of measured results — not rendered captures.</span>
+</footer>
+
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  // Measured per-class deltas, 3 seeds, 1508-image real held-out test set.
+  // Source: Synthetic_Data_Factory/docs/results.md (run 20260823T125034Z-e250aa868)
+  var DATA = [
+    { c: 'mel',   rare: false, d:  0.1164, s: 0.0482, n: 'melanoma' },
+    { c: 'bkl',   rare: false, d:  0.0828, s: 0.0981, n: 'benign keratosis' },
+    { c: 'vasc',  rare: true,  d:  0.0606, s: 0.0525, n: 'vascular lesion' },
+    { c: 'df',    rare: true,  d: -0.0196, s: 0.0679, n: 'dermatofibroma' },
+    { c: 'nv',    rare: false, d: -0.0305, s: 0.0080, n: 'melanocytic nevi' },
+    { c: 'bcc',   rare: true,  d: -0.0519, s: 0.0130, n: 'basal cell carcinoma' },
+    { c: 'akiec', rare: true,  d: -0.0523, s: 0.1115, n: 'actinic keratosis' }
+  ];
+
+  var W = 760, PAD_L = 118, PAD_R = 92, TOP = 54, ROW = 30, BAR = 13;
+  var H = TOP + DATA.length * ROW + 78;
+  var plotW = W - PAD_L - PAD_R;
+  var DOM = 0.20;                        // symmetric domain
+  var zero = PAD_L + plotW / 2;
+  var px = function (v) { return zero + (v / DOM) * (plotW / 2); };
+
+  var svg = document.getElementById('sdf');
+  if (!svg) return;
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(t, a) {
+    var e = document.createElementNS(NS, t);
+    for (var k in a) e.setAttribute(k, a[k]);
+    return e;
+  }
+  function txt(x, y, s, cls, anchor) {
+    var e = el('text', { x: x, y: y, class: cls });
+    if (anchor) e.setAttribute('text-anchor', anchor);
+    e.textContent = s;
+    return e;
+  }
+
+  svg.appendChild(txt(0, 13, 'Per-class recall change from synthetic augmentation', 't-hd'));
+  svg.appendChild(txt(0, 30, 'mean paired delta over 3 seeds · whiskers ±1 SD', 't-lab-s'));
+
+  // axis ticks
+  [-0.2, -0.1, 0, 0.1, 0.2].forEach(function (t) {
+    var x = px(t);
+    svg.appendChild(el('line', {
+      x1: x, y1: TOP - 10, x2: x, y2: TOP + DATA.length * ROW - 6,
+      stroke: t === 0 ? 'var(--ink-3)' : 'var(--rule)',
+      'stroke-width': t === 0 ? 1.5 : 1
+    }));
+    svg.appendChild(txt(x, TOP + DATA.length * ROW + 15,
+      (t > 0 ? '+' : '') + t.toFixed(1), 't-lab-s', 'middle'));
+  });
+  svg.appendChild(txt(zero, TOP + DATA.length * ROW + 34,
+    'change in recall  (worse ← 0 → better)', 't-lab-s', 'middle'));
+
+  var tip = document.getElementById('tip');
+  DATA.forEach(function (d, i) {
+    var yc = TOP + i * ROW + ROW / 2 - 6;
+    var pos = d.d >= 0;
+    var col = pos ? 'var(--pos)' : 'var(--neg)';
+
+    // class label + rare marker
+    svg.appendChild(txt(PAD_L - 30, yc + 4, d.c, 't-lab', 'end'));
+    if (d.rare) {
+      svg.appendChild(el('circle', { cx: PAD_L - 18, cy: yc, r: 3.5, fill: 'var(--ink-2)' }));
+    }
+
+    // bar
+    var x0 = pos ? zero : px(d.d);
+    var w = Math.abs(px(d.d) - zero);
+    var r = el('rect', {
+      x: x0, y: yc - BAR / 2, width: Math.max(w, 1.5), height: BAR,
+      fill: col, rx: 2, class: 'bar'
+    });
+    svg.appendChild(r);
+
+    // error whisker
+    var lo = px(d.d - d.s), hi = px(d.d + d.s);
+    svg.appendChild(el('line', { x1: lo, y1: yc, x2: hi, y2: yc, stroke: 'var(--ink-2)', 'stroke-width': 1.5 }));
+    svg.appendChild(el('line', { x1: lo, y1: yc - 4, x2: lo, y2: yc + 4, stroke: 'var(--ink-2)', 'stroke-width': 1.5 }));
+    svg.appendChild(el('line', { x1: hi, y1: yc - 4, x2: hi, y2: yc + 4, stroke: 'var(--ink-2)', 'stroke-width': 1.5 }));
+
+    // value label, outside the whisker
+    var lx = pos ? hi + 8 : lo - 8;
+    svg.appendChild(txt(lx, yc + 4,
+      (pos ? '+' : '−') + Math.abs(d.d).toFixed(3), 't-val', pos ? 'start' : 'end'));
+
+    // hover target spanning the row
+    var hit = el('rect', { x: 0, y: yc - ROW / 2, width: W, height: ROW, fill: 'transparent' });
+    hit.addEventListener('mousemove', function (e) {
+      tip.innerHTML = d.n + ' (' + d.c + ')' + (d.rare ? ' · augmented' : ' · not augmented') +
+        '<br>recall Δ ' + (pos ? '+' : '−') + Math.abs(d.d).toFixed(4) + ' ± ' + d.s.toFixed(4);
+      tip.style.opacity = '1';
+      var tw = tip.offsetWidth, th = tip.offsetHeight;
+      tip.style.left = Math.min(e.clientX + 14, window.innerWidth - tw - 8) + 'px';
+      tip.style.top = Math.max(e.clientY - th - 10, 8) + 'px';
+    });
+    hit.addEventListener('mouseleave', function () { tip.style.opacity = '0'; });
+    svg.appendChild(hit);
+  });
+
+  // legend
+  var ly = H - 8;
+  svg.appendChild(el('circle', { cx: 4, cy: ly - 4, r: 3.5, fill: 'var(--ink-2)' }));
+  svg.appendChild(txt(14, ly, 'augmentation target (rare class)', 't-lab-s'));
+  svg.appendChild(el('rect', { x: 196, y: ly - 10, width: 16, height: 9, rx: 2, fill: 'var(--pos)' }));
+  svg.appendChild(txt(218, ly, 'recall improved', 't-lab-s'));
+  svg.appendChild(el('rect', { x: 320, y: ly - 10, width: 16, height: 9, rx: 2, fill: 'var(--neg)' }));
+  svg.appendChild(txt(342, ly, 'recall degraded', 't-lab-s'));
+})();
+</script>
+</body>
+</html>
