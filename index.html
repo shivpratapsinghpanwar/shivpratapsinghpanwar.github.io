@@ -743,6 +743,84 @@ footer{
   </p>
 </section>
 
+<section class="proj">
+  <h3>KrishiDisha — multi-task agricultural vision, validated in the field</h3>
+  <div class="spec">
+    <span class="chip live">IEEE 2025</span>
+    <span class="chip">first author</span>
+    <span class="chip">multi-task CNN</span>
+    <span class="chip">150+ farmers</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 760 214" role="img" aria-label="Multi-task architecture: field imagery passes through one shared vision backbone feeding three heads — disease detection with F1 0.99, crop recommendation with precision 0.96, and yield regression with R squared 0.98 — whose combined output becomes a farmer advisory, validated with more than 150 farmers.">
+      <text class="t-hd" x="0" y="13">One backbone, one inference pass, three answers</text>
+
+      <rect x="0" y="40" width="112" height="92" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="12" y="58" fill="var(--ink-3)">INPUT</text>
+      <text class="t-lab" x="12" y="78">field imagery</text>
+      <text class="t-lab-s" x="12" y="94">crop · leaf · soil</text>
+
+      <path d="M118 86 L142 86" stroke="var(--ink-3)" stroke-width="1.5"/>
+      <path d="M138 82 L144 86 L138 90 Z" fill="var(--ink-3)"/>
+
+      <rect x="150" y="40" width="134" height="92" rx="3" fill="var(--surface)" stroke="var(--pos)" stroke-width="1.5"/>
+      <text class="t-lab-s" x="162" y="58" fill="var(--pos)">SHARED BACKBONE</text>
+      <text class="t-lab" x="162" y="78">one forward pass</text>
+      <text class="t-lab-s" x="162" y="94">features reused</text>
+      <text class="t-lab-s" x="162" y="110">across all heads</text>
+
+      <path d="M290 86 L314 62" stroke="var(--ink-3)" stroke-width="1.2"/>
+      <path d="M290 86 L314 86" stroke="var(--ink-3)" stroke-width="1.2"/>
+      <path d="M290 86 L314 110" stroke="var(--ink-3)" stroke-width="1.2"/>
+
+      <rect x="320" y="34" width="238" height="30" rx="2" fill="var(--pos)" opacity="0.13"/>
+      <rect x="320" y="34" width="3" height="30" fill="var(--pos)"/>
+      <text class="t-lab" x="334" y="53">disease detection</text>
+      <text class="t-val" x="546" y="53" text-anchor="end">F1 0.99</text>
+
+      <rect x="320" y="70" width="238" height="30" rx="2" fill="var(--pos)" opacity="0.13"/>
+      <rect x="320" y="70" width="3" height="30" fill="var(--pos)"/>
+      <text class="t-lab" x="334" y="89">crop recommendation</text>
+      <text class="t-val" x="546" y="89" text-anchor="end">precision 0.96</text>
+
+      <rect x="320" y="106" width="238" height="30" rx="2" fill="var(--pos)" opacity="0.13"/>
+      <rect x="320" y="106" width="3" height="30" fill="var(--pos)"/>
+      <text class="t-lab" x="334" y="125">yield prediction</text>
+      <text class="t-val" x="546" y="125" text-anchor="end">R² 0.98</text>
+
+      <path d="M564 86 L588 86" stroke="var(--ink-3)" stroke-width="1.5"/>
+      <path d="M584 82 L590 86 L584 90 Z" fill="var(--ink-3)"/>
+
+      <rect x="596" y="40" width="164" height="92" rx="3" fill="var(--surface-2)" stroke="var(--rule)"/>
+      <text class="t-lab-s" x="608" y="58" fill="var(--ink-3)">OUTPUT</text>
+      <text class="t-lab" x="608" y="78">farmer advisory</text>
+      <text class="t-lab-s" x="608" y="94">one decision, not</text>
+      <text class="t-lab-s" x="608" y="108">three model calls</text>
+
+      <rect x="0" y="160" width="760" height="42" rx="3" fill="var(--pos)" opacity="0.10"/>
+      <rect x="0" y="160" width="3" height="42" fill="var(--pos)"/>
+      <text class="t-lab" x="18" y="179" fill="var(--ink)">Validated outside the test set:</text>
+      <text class="t-lab" x="236" y="179">deployed to and used by <tspan font-weight="600">150+ farmers</tspan> on real plots.</text>
+      <text class="t-lab-s" x="18" y="195">Most agricultural CV work stops at a held-out split — the field is where the distribution actually shifts.</text>
+    </svg>
+    <figcaption>
+      <b>Why multi-task matters here.</b> Three heads sharing one backbone means one forward pass instead of
+      three, which is what makes the system deployable on the low-cost hardware a rural advisory service can
+      afford. Metrics are as reported in the paper.
+    </figcaption>
+  </figure>
+
+  <p>
+    First-author work published at <b>IEEE ICoEIT 2025</b> (pp. 1028–1040). Disease detection, crop
+    recommendation and yield prediction run off the same imagery and the same backbone, and the output is a
+    single advisory rather than three disconnected model calls. The result that distinguishes it from the usual
+    agricultural-CV paper is not the headline F1 — it is that the platform was put in front of
+    <b>150+ farmers</b> and used on real plots.
+  </p>
+  <p class="src">paper &nbsp;&middot; <a href="https://doi.org/10.1109/ICoEIT63558.2025.11211713">doi.org/10.1109/ICoEIT63558.2025.11211713</a></p>
+</section>
+
 <!-- ============================================================ 05 -->
 <div class="sec-rule"><span class="n">05</span><h2>Publications</h2></div>
 
