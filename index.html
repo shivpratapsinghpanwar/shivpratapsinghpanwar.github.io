@@ -197,6 +197,65 @@ figure.gait svg{min-width:0}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
 .seg button:focus-visible,.gait-ctl input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .gait-stats{margin:14px 0 0}
+
+/* ---------- in-page demos ---------- */
+.demo-hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:14px}
+.t-hd-h{font-family:var(--font-d);font-size:14px;font-weight:600;color:var(--ink)}
+.demo-sub{font-family:var(--font-m);font-size:11px;color:var(--ink-3)}
+.dd-ctl{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--font-m);font-size:12px;color:var(--ink-2);margin-bottom:14px}
+.dd-ctl label{display:flex;align-items:center;gap:10px}
+.dd-ctl b{color:var(--ink);font-weight:600;min-width:3ch;font-variant-numeric:tabular-nums}
+.dd-ctl input{width:150px;accent-color:var(--accent)}
+.dd-sets{display:grid;gap:12px}
+.dd-lab{font-family:var(--font-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.dd-strip{display:flex;flex-wrap:wrap;gap:8px}
+.dd-item{width:96px;font-family:var(--font-m);font-size:10px;line-height:1.35;color:var(--ink-2)}
+.dd-item img{display:block;width:96px;height:72px;object-fit:cover;border-radius:2px;border:2px solid var(--rule)}
+.dd-item .nm{margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dd-item .bd{margin-top:2px;font-weight:600}
+.dd-item.exact img,.dd-item.near img{border-color:var(--neg)}
+.dd-item.exact .bd,.dd-item.near .bd{color:var(--neg)}
+.dd-item.rej img{border-color:var(--zero);border-style:dashed}
+.dd-item.rej .bd{color:var(--ink-3)}
+.dd-item.clean .bd{color:var(--pos)}
+.dd-item.hit img{border-color:var(--neg)}
+.dd-files{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.filebtn{font-family:var(--font-m);font-size:11.5px;padding:4px 10px;border:1px solid var(--rule);border-radius:2px;
+  background:var(--surface-2);color:var(--ink-2);cursor:pointer;position:relative}
+.filebtn:hover{border-color:var(--accent);color:var(--accent)}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.filebtn:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.dd-out,.ea-out{font-family:var(--font-m);font-size:11.5px;line-height:1.55;background:var(--surface-2);color:var(--ink);
+  border:1px solid var(--rule-2);border-radius:2px;padding:10px 12px;margin:14px 0 0;overflow-x:auto;white-space:pre}
+.dd-out .f,.ea-warn .f{color:var(--neg);font-weight:600}
+.dd-out .ok{color:var(--pos);font-weight:600}
+
+.ea-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;min-height:28px}
+.ea-classes{display:flex;flex-wrap:wrap;gap:6px}
+.ea-classes button{font-family:var(--font-m);font-size:11.5px;padding:3px 9px;border-radius:2px;cursor:pointer;
+  border:1px solid var(--rule);background:var(--surface-2);color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.ea-classes button i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.ea-classes button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.ea-classes .hint{font-family:var(--font-m);font-size:11.5px;color:var(--ink-3)}
+.ea-saved{font-family:var(--font-m);font-size:11px;color:var(--ink-3)}
+.ea-name{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px;font-family:var(--font-m);font-size:12px;color:var(--ink-2)}
+.ea-name input{font:inherit;font-size:13px;padding:4px 8px;border:1px solid var(--accent);border-radius:2px;background:var(--surface);color:var(--ink);width:180px}
+.ea-name button,.ea-btns button{font-family:var(--font-m);font-size:11.5px;padding:4px 10px;border-radius:2px;cursor:pointer;
+  border:1px solid var(--rule);background:var(--surface-2);color:var(--ink-2)}
+.ea-name button{border-color:var(--accent);color:var(--accent)}
+.ea-stage{border:1px solid var(--rule);border-radius:2px;overflow:hidden;touch-action:none;outline:none;line-height:0}
+.ea-stage:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ea-stage canvas{display:block;width:100%;height:auto;cursor:crosshair}
+.ea-acts{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:10px}
+.ea-film{display:flex;gap:6px}
+.ea-film button{font-family:var(--font-m);font-size:11px;padding:3px 8px;border-radius:2px;cursor:pointer;
+  border:1px solid var(--rule);background:var(--surface-2);color:var(--ink-2)}
+.ea-film button[aria-current="true"]{border-color:var(--ink);color:var(--ink)}
+.ea-film button.done::after{content:" ✓";color:var(--pos)}
+.ea-btns{display:flex;flex-wrap:wrap;gap:6px}
+.ea-btns kbd{font-family:var(--font-m);font-size:10px;color:var(--ink-3);margin-left:4px}
+.ea-export{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px}
+.proj .ea-warn{font-family:var(--font-m);font-size:11.5px;color:var(--ink-2);margin:10px 0 0;max-width:none}
 </style>
 <style>
   html{color-scheme:light dark}
@@ -382,14 +441,132 @@ figure.gait svg{min-width:0}
     </figcaption>
   </figure>
 
+    <figure class="dd-demo" id="dd-demo">
+    <div class="demo-hd">
+      <span class="t-hd-h">Try it — a leakage check running in this page</span>
+      <span class="demo-sub">sample frames are generated here; or drop in your own images, which never leave the browser</span>
+    </div>
+    <div class="dd-ctl">
+      <label>hash distance ≤ <b id="dd-th-v">3</b><input type="range" id="dd-th" min="0" max="16" step="1" value="3"></label>
+      <label>similarity ≥ <b id="dd-sim-v">90%</b><input type="range" id="dd-sim" min="0.80" max="0.99" step="0.01" value="0.90"></label>
+    </div>
+    <div class="dd-sets">
+      <div class="dd-set"><div class="dd-lab">train <span id="dd-tn"></span></div><div class="dd-strip" id="dd-train"></div></div>
+      <div class="dd-set"><div class="dd-lab">val <span id="dd-vn"></span></div><div class="dd-strip" id="dd-val"></div></div>
+    </div>
+    <div class="dd-files">
+      <label class="filebtn">your train images<input type="file" id="dd-ftrain" accept="image/*" multiple></label>
+      <label class="filebtn">your val images<input type="file" id="dd-fval" accept="image/*" multiple></label>
+      <button type="button" class="filebtn" id="dd-reset">back to sample</button>
+    </div>
+    <pre class="dd-out" id="dd-out" aria-live="polite">running…</pre>
+    <figcaption>
+      <b>The same three stages as the package</b>, ported to the browser: SHA-256 over the file bytes, then dHash over
+      all 8 orientations of a 64×64 greyscale thumbnail to nominate, then 1 − mean absolute pixel difference across
+      the 8 orientations to verify, plus the package's DCT pHash. One sample, a mirrored and heavily recompressed JPEG,
+      sits just past the default hash distance: widen it and the pixel check confirms the copy. The package buckets
+      hashes for speed; this demo compares every pair, so keep your own sets to a few hundred images.
+    </figcaption>
+  </figure>
+
   <p>
     A 10-second habit instead of a post-mortem: exact duplicates, near-duplicates, train/val leakage and COCO
     structural defects (duplicate ids, annotations referencing missing images, degenerate boxes and polygons,
     zero-annotation images) in one command. Exit code 1 on failure, so it drops straight into CI. Rotated,
-    flipped, re-encoded and resized copies are all caught.
+    flipped, re-encoded and resized copies are caught, and the hash distance sets how much recompression it tolerates.
   </p>
   <p class="src">install · <a href="https://pypi.org/project/vision-data-doctor">pip install vision-data-doctor</a><br>
     source &nbsp;· <a href="https://github.com/shivpratapsinghpanwar/data-doctor">github.com/shivpratapsinghpanwar/data-doctor</a></p>
+</section>
+
+<section class="proj" id="easyannotate">
+  <h3>EasyAnnotate</h3>
+  <div class="spec">
+    <span class="chip live">product</span>
+    <span class="chip priv">source private</span>
+    <span class="chip">annotate · convert · clean · split · augment</span>
+    <span class="chip">VOC · YOLO · COCO · LabelMe · CSV</span>
+    <span class="chip">CLI · web · desktop · Docker</span>
+  </div>
+
+  <p>
+    The whole dataset workflow in one tool: annotate, import a model's predictions and correct them, convert between
+    formats, deduplicate, split without leakage, resize, tile, augment, and report. One rule decides what ships:
+    <b>if a feature needs configuring before you can draw the first box, it does not ship.</b> Mainstream annotation
+    tools ask for an organisation, a project, a label schema and a task first. Here a class is created by drawing a
+    box and typing its name.
+  </p>
+
+  <div class="stats">
+    <div class="stat"><div class="k">setup before first box</div><div class="v">0 steps</div><div class="s">no project, schema or task</div></div>
+    <div class="stat"><div class="k">formats</div><div class="v">5</div><div class="s">read and written, boxes and polygons</div></div>
+    <div class="stat"><div class="k">ways to drive it</div><div class="v">4</div><div class="s">menu, CLI, YAML recipes, browser</div></div>
+    <div class="stat"><div class="k">automated tests</div><div class="v">550</div><div class="s">core, service and editor</div></div>
+  </div>
+
+  <figure class="ea" id="ea">
+    <div class="demo-hd">
+      <span class="t-hd-h">Try it — draw a box</span>
+      <span class="demo-sub">a working cut-down of the editor: boxes only, three generated images, nothing leaves the page</span>
+    </div>
+    <div class="ea-bar">
+      <div class="ea-classes" id="ea-classes"></div>
+      <span class="ea-saved" id="ea-saved" aria-live="polite"></span>
+    </div>
+    <form class="ea-name" id="ea-name" hidden>
+      <label for="ea-name-in">name this class</label>
+      <input id="ea-name-in" type="text" maxlength="24" autocomplete="off" placeholder="e.g. washer">
+      <button type="submit">create</button>
+    </form>
+    <div class="ea-stage" id="ea-stage" tabindex="0" aria-label="Annotation canvas. Drag to draw a box. Keys: 1 to 9 pick or re-class, Delete removes, Ctrl+D copies the previous image's boxes, R marks reviewed.">
+      <canvas id="ea-cv" width="640" height="400"></canvas>
+    </div>
+    <div class="ea-acts">
+      <div class="ea-film" id="ea-film"></div>
+      <div class="ea-btns">
+        <button type="button" data-a="copy">copy previous <kbd>Ctrl D</kbd></button>
+        <button type="button" data-a="del">delete <kbd>Del</kbd></button>
+        <button type="button" data-a="review">reviewed, next <kbd>R</kbd></button>
+      </div>
+    </div>
+    <div class="ea-export">
+      <div class="seg" id="ea-fmt" role="group" aria-label="Export format">
+        <button type="button" data-k="yolo" aria-pressed="true">YOLO</button>
+        <button type="button" data-k="voc" aria-pressed="false">VOC</button>
+        <button type="button" data-k="coco" aria-pressed="false">COCO</button>
+      </div>
+      <div class="seg" id="ea-idx" role="group" aria-label="Class indices">
+        <button type="button" data-k="stable" aria-pressed="true">indices allocated once</button>
+        <button type="button" data-k="sorted" aria-pressed="false">indices sorted at export</button>
+      </div>
+    </div>
+    <pre class="ea-out" id="ea-out"></pre>
+    <p class="ea-warn" id="ea-warn" aria-live="polite"></p>
+    <figcaption>
+      <b>What the demo shows.</b> There is no Save button: edits are kept 400&nbsp;ms after you stop. All three
+      formats come from one neutral record, so adding a format means one reader and one writer, not a converter for
+      every pair. The index toggle shows the quiet failure: a YOLO file stores a class <i>number</i>, so a tool that
+      sorts names at export moves every index after a newly added class, and old label files change meaning
+      without an error. EasyAnnotate allocates an index once and never moves it.
+    </figcaption>
+  </figure>
+
+  <p>
+    <b>The model loop.</b> Annotate a few hundred images, train, then load the model's predictions back in — YOLO,
+    VOC, LabelMe, COCO, or the bare detection-results list that evaluation scripts emit. Predictions render dashed and
+    fade with confidence; one key accepts what is visible and moves on. Every import reports what <i>did not</i>
+    match, because a file-name mismatch that imports zero shapes looks exactly like a model that predicted nothing.
+    Export takes <b>reviewed images only</b> by default: feeding a model its own unchecked predictions as ground truth
+    is how it poisons itself, and nothing in the output looks wrong when it happens.
+  </p>
+  <p>
+    <b>Model agreement</b> tells you when to retrain and when to stop. It counts only images a person has reviewed,
+    and it counts deletions, since deleting a false positive is the commonest correction there is. Segmentation models
+    such as SAM propose outlines from a separate process, so an out-of-memory crash takes the tool down, not the
+    editor, and masks are simplified to editable polygons with a vertex cap rather than thousand-point outlines.
+    Existing folders can be annotated in place, writing back to their own VOC, LabelMe or YOLO files atomically.
+  </p>
+  <p class="src">source · private; demo on request</p>
 </section>
 
 <!-- ============================================================ 03 -->
@@ -755,6 +932,426 @@ figure.gait svg{min-width:0}
     requestAnimationFrame(tick);
   }
 })();
+</script>
+<script>
+// ===================================================================== data-doctor, in the browser
+// A port of data_doctor/hashing.py + leakage.py: SHA-256 exact match, dHash over the
+// 8 dihedral orientations of a 64x64 greyscale thumbnail to nominate, and
+// 1 - mean|diff|/255 maximised over the 8 orientations to verify.
+(() => {
+  const root = document.getElementById("dd-demo");
+  if (!root) return;
+  const T = 64;
+  const ORIENT = ["identity", "rot90", "rot180", "rot270", "flip_h", "flip_v", "transpose", "transverse"];
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function thumb(img) {
+    const c = document.createElement("canvas"); c.width = c.height = T;
+    const g = c.getContext("2d"); g.imageSmoothingQuality = "high";
+    g.drawImage(img, 0, 0, T, T);
+    const d = g.getImageData(0, 0, T, T).data, out = new Uint8Array(T * T);
+    for (let i = 0; i < T * T; i++) out[i] = (d[i * 4] * 299 + d[i * 4 + 1] * 587 + d[i * 4 + 2] * 114) / 1000;
+    return out;
+  }
+  function orient(a, k) {                       // PIL transpose semantics
+    const o = new Uint8Array(T * T), M = T - 1;
+    for (let y = 0; y < T; y++) for (let x = 0; x < T; x++) {
+      let sx, sy;
+      switch (k) {
+        case 0: sx = x; sy = y; break;
+        case 1: sx = M - y; sy = x; break;        // rotate 90 counter-clockwise
+        case 2: sx = M - x; sy = M - y; break;
+        case 3: sx = y; sy = M - x; break;        // rotate 270
+        case 4: sx = M - x; sy = y; break;
+        case 5: sx = x; sy = M - y; break;
+        case 6: sx = y; sy = x; break;
+        default: sx = M - y; sy = M - x;
+      }
+      o[y * T + x] = a[sy * T + sx];
+    }
+    return o;
+  }
+  function dhash(a) {                           // resize to 9x8 by area mean, compare neighbours
+    const g = [];
+    for (let r = 0; r < 8; r++) {
+      const y0 = Math.floor(r * T / 8), y1 = Math.floor((r + 1) * T / 8), row = [];
+      for (let c = 0; c < 9; c++) {
+        const x0 = Math.floor(c * T / 9), x1 = Math.max(x0 + 1, Math.floor((c + 1) * T / 9));
+        let s = 0; for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) s += a[y * T + x];
+        row.push(s / ((y1 - y0) * (x1 - x0)));
+      }
+      g.push(row);
+    }
+    const bits = new Uint8Array(64);
+    for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) bits[r * 8 + c] = g[r][c] > g[r][c + 1] ? 1 : 0;
+    return bits;
+  }
+  const COS = Array.from({ length: 32 }, (_, u) => Array.from({ length: 32 }, (_, x) => Math.cos(Math.PI * (2 * x + 1) * u / 64)));
+  function phash(a) {                           // 32x32 -> 8x8 low-frequency DCT, median over the 63 AC terms
+    const p = new Float64Array(1024);
+    for (let y = 0; y < 32; y++) for (let x = 0; x < 32; x++)
+      p[y * 32 + x] = (a[2 * y * T + 2 * x] + a[2 * y * T + 2 * x + 1] + a[(2 * y + 1) * T + 2 * x] + a[(2 * y + 1) * T + 2 * x + 1]) / 4;
+    const rows = [];
+    for (let y = 0; y < 32; y++) { const r = []; for (let u = 0; u < 8; u++) { let s = 0; for (let x = 0; x < 32; x++) s += p[y * 32 + x] * COS[u][x]; r.push(s); } rows.push(r); }
+    const vals = [];
+    for (let v = 0; v < 8; v++) for (let u = 0; u < 8; u++) { let s = 0; for (let y = 0; y < 32; y++) s += rows[y][u] * COS[v][y]; vals.push(s); }
+    const ac = vals.slice(1), med = [...ac].sort((x, y) => x - y)[31];
+    const bits = new Uint8Array(64); ac.forEach((v, i) => { bits[i] = v > med ? 1 : 0; });
+    return bits;                                  // 63 bits used, last stays 0 on both sides
+  }
+  const hamming = (a, b) => { let n = 0; for (let i = 0; i < 64; i++) n += a[i] !== b[i]; return n; };
+  function hashDistance(a, b) {
+    let best = 64;
+    for (const d of a.dh) best = Math.min(best, hamming(d, b.dh[0]));
+    for (const d of b.dh) best = Math.min(best, hamming(d, a.dh[0]));
+    return Math.min(best, hamming(a.ph, b.ph));
+  }
+  function pixelSimilarity(a, b) {
+    let best = 0, name = "identity";
+    for (let k = 0; k < 8; k++) {
+      const o = a.or[k]; let s = 0;
+      for (let i = 0; i < T * T; i++) s += Math.abs(o[i] - b.or[0][i]);
+      const score = 1 - s / (T * T) / 255;
+      if (score > best) { best = score; name = ORIENT[k]; }
+    }
+    return [best, name];
+  }
+  async function sha(bytes) {
+    try {
+      const h = await crypto.subtle.digest("SHA-256", bytes);
+      return Array.from(new Uint8Array(h), (b) => b.toString(16).padStart(2, "0")).join("");
+    } catch (e) {                                 // no subtle crypto: compare the bytes themselves
+      const u = new Uint8Array(bytes); let h = 2166136261;
+      for (let i = 0; i < u.length; i++) h = Math.imul(h ^ u[i], 16777619);
+      return "fnv" + (h >>> 0) + ":" + u.length;
+    }
+  }
+  const loadImg = (url) => new Promise((ok, bad) => { const i = new Image(); i.onload = () => ok(i); i.onerror = bad; i.src = url; });
+  async function sign(name, bytes, url) {
+    const img = await loadImg(url), th = thumb(img), or = [];
+    for (let k = 0; k < 8; k++) or.push(orient(th, k));
+    return { name, url, sha: await sha(bytes), or, dh: or.map(dhash), ph: phash(th) };
+  }
+
+  // ---- sample frames: rocks on a belt, generated here
+  function scene(seed, shift = 0) {
+    const c = document.createElement("canvas"); c.width = 160; c.height = 120;
+    const g = c.getContext("2d");
+    let s = seed * 9973 + 7; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    g.fillStyle = "#3b3f44"; g.fillRect(0, 0, 160, 120);
+    for (let n = 0; n < 260; n++) {
+      const v = 70 + rnd() * 60; g.fillStyle = `rgb(${v},${v - 4},${v - 10})`;
+      g.fillRect((rnd() * 200 + shift) % 160, rnd() * 120, 1 + rnd() * 2, 1 + rnd() * 2);
+    }
+    const k = 4 + Math.floor(rnd() * 4);
+    for (let n = 0; n < k; n++) {
+      const cx = (rnd() * 150 + 5 + shift) % 170 - 5, cy = 10 + rnd() * 100, R = 7 + rnd() * 16, v = 120 + rnd() * 90;
+      g.beginPath();
+      for (let i = 0; i < 9; i++) {
+        const a = i / 9 * Math.PI * 2, rr = R * (0.7 + rnd() * 0.4);
+        const X = cx + Math.cos(a) * rr, Y = cy + Math.sin(a) * rr * 0.8;
+        i ? g.lineTo(X, Y) : g.moveTo(X, Y);
+      }
+      g.closePath(); g.fillStyle = `rgb(${v + 15},${v},${v - 20})`; g.fill();
+      g.fillStyle = "rgba(255,255,255,.2)"; g.beginPath(); g.arc(cx - R * .3, cy - R * .3, R * .25, 0, 7); g.fill();
+    }
+    return c;
+  }
+  function transformed(src, fn, w, h) {
+    const c = document.createElement("canvas"); c.width = w; c.height = h;
+    const g = c.getContext("2d"); fn(g); g.drawImage(src, 0, 0); return c;
+  }
+  const urlBytes = (u) => { const b = atob(u.split(",")[1]), a = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a.buffer; };
+  async function sample() {
+    const train = [], val = [], png = {};
+    for (let i = 1; i <= 5; i++) png[i] = scene(i).toDataURL("image/png");
+    for (let i = 1; i <= 5; i++) train.push(["frame_00" + i + ".png", png[i]]);
+    val.push(["frame_101.png", png[2]]);                                                  // byte-identical copy
+    val.push(["frame_102.png", transformed(scene(3), (g) => { g.translate(0, 160); g.rotate(-Math.PI / 2); g.filter = "brightness(1.08)"; }, 120, 160).toDataURL("image/png")]);
+    val.push(["frame_103.jpg", transformed(scene(4), (g) => { g.translate(160, 0); g.scale(-1, 1); }, 160, 120).toDataURL("image/jpeg", 0.5)]);
+    val.push(["frame_104.png", scene(5, 34).toDataURL("image/png")]);                     // the belt moved on
+    val.push(["frame_105.png", scene(11).toDataURL("image/png")]);
+    val.push(["frame_106.png", scene(12).toDataURL("image/png")]);
+    const sg = (l) => Promise.all(l.map(([n, u]) => sign(n, urlBytes(u), u)));
+    return [await sg(train), await sg(val)];
+  }
+  async function fromFiles(files) {
+    const out = [];
+    for (const f of Array.from(files).slice(0, 400)) {
+      if (!f.type.startsWith("image/")) continue;
+      try { out.push(await sign(f.name, await f.arrayBuffer(), URL.createObjectURL(f))); } catch (e) { /* undecodable: skip */ }
+    }
+    return out;
+  }
+
+  let train = [], val = [];
+  const th = document.getElementById("dd-th"), sim = document.getElementById("dd-sim"), out = document.getElementById("dd-out");
+  function item(x, cls, badge) {
+    return `<div class="dd-item ${cls}"><img src="${x.url}" alt=""><div class="nm" title="${esc(x.name)}">${esc(x.name)}</div>` +
+      (badge ? `<div class="bd">${badge}</div>` : "") + `</div>`;
+  }
+  function run() {
+    const maxD = +th.value, minS = +sim.value;
+    document.getElementById("dd-th-v").textContent = maxD;
+    document.getElementById("dd-sim-v").textContent = Math.round(minS * 100) + "%";
+    const bySha = new Map(); train.forEach((t) => { if (!bySha.has(t.sha)) bySha.set(t.sha, t); });
+    const exact = [], near = [], rej = [], hit = new Set(), vh = [];
+    for (const v of val) {
+      if (bySha.has(v.sha)) { const t = bySha.get(v.sha); exact.push([v, t]); hit.add(t); vh.push(item(v, "exact", "exact = " + esc(t.name))); continue; }
+      let best = null, nominated = null;
+      for (const t of train) {
+        if (hashDistance(v, t) > maxD) continue;
+        const [score, o] = pixelSimilarity(v, t);
+        if (!nominated || score > nominated[1]) nominated = [t, score, o];
+        if (score >= minS && (!best || score > best[1])) best = [t, score, o];
+      }
+      if (best) { near.push([v, ...best]); hit.add(best[0]); vh.push(item(v, "near", `${(best[1] * 100).toFixed(1)}% ~ ${esc(best[0].name)}`)); }
+      else if (nominated) { rej.push([v, ...nominated]); vh.push(item(v, "rej", `nominated, ${(nominated[1] * 100).toFixed(1)}% — rejected`)); }
+      else vh.push(item(v, "clean", "clean"));
+    }
+    document.getElementById("dd-train").innerHTML = train.map((t) => item(t, hit.has(t) ? "hit" : "", "")).join("");
+    document.getElementById("dd-val").innerHTML = vh.join("");
+    document.getElementById("dd-tn").textContent = "· " + train.length;
+    document.getElementById("dd-vn").textContent = "· " + val.length;
+    const L = [`train: ${train.length} images | val: ${val.length} images`, ""];
+    if (exact.length) {
+      L.push(`  <span class="f">FAIL</span> exact leaks (byte-identical in both splits): ${exact.length}`);
+      exact.forEach(([v, t]) => L.push(`         val/${esc(v.name)} == train/${esc(t.name)}`));
+    }
+    if (near.length) {
+      L.push(`  <span class="f">FAIL</span> near leaks (pixel-verified >= ${Math.round(minS * 100)}% similar): ${near.length}`);
+      near.forEach(([v, t, s, o]) => L.push(`         val/${esc(v.name)} ~~ train/${esc(t.name)} (${(s * 100).toFixed(1)}% similar${o === "identity" ? "" : ", " + o})`));
+    }
+    if (rej.length) {
+      L.push(`  nominated by hash, rejected on pixels: ${rej.length}`);
+      rej.forEach(([v, t, s]) => L.push(`         val/${esc(v.name)} vs train/${esc(t.name)} (${(s * 100).toFixed(1)}%, below the floor)`));
+    }
+    const leaked = exact.length + near.length;
+    L.push("");
+    if (!val.length || !train.length) L.push("  add images to both sets");
+    else if (leaked) L.push(`  ${(leaked / val.length * 100).toFixed(1)}% of the validation set is leaked from train.`);
+    else L.push(`  <span class="ok">ok</span>  no leaks at these settings`);
+    out.innerHTML = L.join("\n");
+  }
+  th.addEventListener("input", run); sim.addEventListener("input", run);
+  const busy = () => { out.textContent = "hashing…"; };
+  document.getElementById("dd-ftrain").addEventListener("change", async (e) => { if (!e.target.files.length) return; busy(); train = await fromFiles(e.target.files); run(); });
+  document.getElementById("dd-fval").addEventListener("change", async (e) => { if (!e.target.files.length) return; busy(); val = await fromFiles(e.target.files); run(); });
+  document.getElementById("dd-reset").addEventListener("click", async () => { busy(); [train, val] = await sample(); run(); });
+  sample().then(([t, v]) => { train = t; val = v; run(); }).catch((e) => { out.textContent = "demo could not start: " + e.message; });
+})();
+
+// ===================================================================== EasyAnnotate, cut down
+(() => {
+  const root = document.getElementById("ea");
+  if (!root) return;
+  const W = 640, H = 400;
+  const COLORS = ["#00918A", "#C04A17", "#5B6CD0", "#B8860B", "#9B59B6", "#2E86C1", "#D35400", "#16A085", "#7F8C8D"];
+  const images = [1, 2, 3].map((i) => ({ name: `tray_00${i}.jpg`, seed: i, boxes: [], reviewed: false }));
+  const classes = [];                 // allocation order: index never moves
+  const createdAt = {};               // name -> its index under "sorted at export" when first written
+  let cur = -1, at = 0, sel = -1, pending = null, wantNew = false, drag = null, fmt = "yolo", mode = "stable", saveT = 0;
+
+  const cv = document.getElementById("ea-cv"), g = cv.getContext("2d");
+  const stage = document.getElementById("ea-stage"), nameForm = document.getElementById("ea-name"), nameIn = document.getElementById("ea-name-in");
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  const bgCache = {};
+  function background(seed) {        // a parts tray: washers, brackets, bolts
+    if (bgCache[seed]) return bgCache[seed];
+    const c = document.createElement("canvas"); c.width = W; c.height = H;
+    const b = c.getContext("2d");
+    let s = seed * 7919 + 3; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    const gr = b.createLinearGradient(0, 0, W, H); gr.addColorStop(0, "#c9cfd3"); gr.addColorStop(1, "#aab2b8");
+    b.fillStyle = gr; b.fillRect(0, 0, W, H);
+    b.fillStyle = "rgba(0,0,0,.08)";
+    for (let y = 20; y < H; y += 40) for (let x = 20; x < W; x += 40) { b.beginPath(); b.arc(x, y, 3, 0, 7); b.fill(); }
+    const spots = []; const free = (x, y, r) => spots.every(([a, c2, q]) => Math.hypot(a - x, c2 - y) > r + q + 12);
+    const place = (r) => { for (let t = 0; t < 60; t++) { const x = r + 10 + rnd() * (W - 2 * r - 20), y = r + 10 + rnd() * (H - 2 * r - 20); if (free(x, y, r)) { spots.push([x, y, r]); return [x, y]; } } return null; };
+    for (let n = 0; n < 3 + Math.floor(rnd() * 2); n++) {               // washers
+      const r = 26 + rnd() * 14, p = place(r); if (!p) continue;
+      b.fillStyle = "#7d868c"; b.beginPath(); b.arc(p[0], p[1], r, 0, 7); b.fill();
+      b.fillStyle = "#9aa3a9"; b.beginPath(); b.arc(p[0] - 2, p[1] - 2, r - 4, 0, 7); b.fill();
+      b.fillStyle = "#b9c0c5"; b.beginPath(); b.arc(p[0], p[1], r * .42, 0, 7); b.fill();
+    }
+    for (let n = 0; n < 2; n++) {                                       // brackets
+      const p = place(52); if (!p) continue;
+      b.save(); b.translate(p[0], p[1]); b.rotate((rnd() - .5) * .6);
+      b.fillStyle = "#556068"; b.fillRect(-46, -40, 22, 80); b.fillRect(-46, 18, 92, 22);
+      b.fillStyle = "#6b767e"; b.fillRect(-44, -38, 18, 76); b.restore();
+    }
+    for (let n = 0; n < 2; n++) {                                       // bolts
+      const p = place(48); if (!p) continue;
+      b.save(); b.translate(p[0], p[1]); b.rotate(rnd() * Math.PI);
+      b.fillStyle = "#8a7a52"; b.fillRect(-40, -7, 66, 14);
+      b.fillStyle = "#6f6242"; b.beginPath();
+      for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2; b.lineTo(30 + Math.cos(a) * 15, Math.sin(a) * 15); }
+      b.fill(); b.restore();
+    }
+    return (bgCache[seed] = c);
+  }
+
+  function draw() {
+    const im = images[at];
+    g.clearRect(0, 0, W, H); g.drawImage(background(im.seed), 0, 0);
+    const all = im.boxes.map((b, i) => [b, i === sel, false]);
+    if (pending) all.push([pending, false, true]);
+    if (drag && drag.box) all.push([drag.box, false, true]);
+    for (const [b, isSel, dashed] of all) {
+      const col = b.c >= 0 ? COLORS[b.c % COLORS.length] : "#0D1319";
+      g.save();
+      g.fillStyle = col + "22"; g.fillRect(b.x, b.y, b.w, b.h);
+      g.strokeStyle = col; g.lineWidth = isSel ? 3.5 : 2; if (dashed) g.setLineDash([6, 4]);
+      g.strokeRect(b.x, b.y, b.w, b.h); g.setLineDash([]);
+      if (b.c >= 0) {
+        const t = classes[b.c].name; g.font = "600 12px 'IBM Plex Mono', Consolas, monospace";
+        const tw = g.measureText(t).width + 10, ty = b.y > 18 ? b.y - 18 : b.y;
+        g.fillStyle = col; g.fillRect(b.x - 1, ty, tw, 18); g.fillStyle = "#fff"; g.fillText(t, b.x + 4, ty + 13);
+      }
+      if (isSel) { g.fillStyle = "#fff"; g.strokeStyle = col; g.lineWidth = 2;
+        for (const [hx, hy] of [[b.x, b.y], [b.x + b.w, b.y], [b.x, b.y + b.h], [b.x + b.w, b.y + b.h]]) { g.fillRect(hx - 4, hy - 4, 8, 8); g.strokeRect(hx - 4, hy - 4, 8, 8); } }
+      g.restore();
+    }
+    if (!im.boxes.length && !pending && !drag) {
+      g.fillStyle = "rgba(13,19,25,.72)"; g.fillRect(W / 2 - 150, H - 46, 300, 30);
+      g.fillStyle = "#fff"; g.font = "13px 'IBM Plex Mono', Consolas, monospace"; g.textAlign = "center";
+      g.fillText(classes.length ? "drag to draw a box" : "drag around any part to start", W / 2, H - 26); g.textAlign = "left";
+    }
+  }
+
+  function renderClasses() {
+    const box = document.getElementById("ea-classes");
+    if (!classes.length) { box.innerHTML = `<span class="hint">no classes yet — the first box creates one</span>`; return; }
+    box.innerHTML = classes.map((c, i) =>
+      `<button type="button" data-c="${i}" aria-pressed="${i === cur && !wantNew}"><i style="background:${COLORS[i % COLORS.length]}"></i>${i < 9 ? i + 1 + " " : ""}${esc(c.name)}</button>`).join("") +
+      `<button type="button" data-c="new" aria-pressed="${wantNew}">+ class</button>`;
+  }
+  function renderFilm() {
+    document.getElementById("ea-film").innerHTML = images.map((im, i) =>
+      `<button type="button" data-i="${i}" aria-current="${i === at}" class="${im.reviewed ? "done" : ""}">${im.name}</button>`).join("");
+  }
+  const sortedNames = () => classes.map((c) => c.name).sort();
+  const idxOf = (c) => (mode === "stable" ? c : sortedNames().indexOf(classes[c].name));
+  const f6 = (v) => v.toFixed(6);
+  function renderExport() {
+    const im = images[at], out = document.getElementById("ea-out"), stem = im.name.replace(/\.jpg$/, "");
+    let t;
+    if (!im.boxes.length) t = "# draw a box to see the export";
+    else if (fmt === "yolo") {
+      const names = mode === "stable" ? classes.map((c) => c.name) : sortedNames();
+      t = `# ${stem}.txt   (class  cx  cy  w  h, normalised)\n` +
+        im.boxes.map((b) => `${idxOf(b.c)} ${f6((b.x + b.w / 2) / W)} ${f6((b.y + b.h / 2) / H)} ${f6(b.w / W)} ${f6(b.h / H)}`).join("\n") +
+        `\n\n# data.yaml\nnames: [${names.join(", ")}]`;
+    } else if (fmt === "voc") {
+      t = `<annotation>\n  <filename>${im.name}</filename>\n  <size><width>${W}</width><height>${H}</height><depth>3</depth></size>\n` +
+        im.boxes.map((b) => `  <object>\n    <name>${esc(classes[b.c].name)}</name>\n    <bndbox><xmin>${Math.round(b.x)}</xmin><ymin>${Math.round(b.y)}</ymin><xmax>${Math.round(b.x + b.w)}</xmax><ymax>${Math.round(b.y + b.h)}</ymax></bndbox>\n  </object>`).join("\n") +
+        `\n</annotation>`;
+      t = esc(t);
+    } else {
+      const used = [...new Set(im.boxes.map((b) => b.c))].sort((a, b) => a - b);
+      t = `{\n  "images": [{"id": ${at + 1}, "file_name": "${im.name}", "width": ${W}, "height": ${H}}],\n` +
+        `  "categories": [${used.map((c) => `{"id": ${idxOf(c) + 1}, "name": "${esc(classes[c].name)}"}`).join(", ")}],\n  "annotations": [\n` +
+        im.boxes.map((b, i) => `    {"id": ${i + 1}, "image_id": ${at + 1}, "category_id": ${idxOf(b.c) + 1}, "bbox": [${Math.round(b.x)}, ${Math.round(b.y)}, ${Math.round(b.w)}, ${Math.round(b.h)}], "area": ${Math.round(b.w * b.h)}}`).join(",\n") +
+        `\n  ]\n}`;
+    }
+    out.innerHTML = t;
+    const warn = document.getElementById("ea-warn");
+    if (mode === "stable") warn.innerHTML = classes.length ? `class table [${classes.map((c, i) => i + " " + esc(c.name)).join(", ")}] — a new class is appended, so no existing file changes meaning.` : "";
+    else {
+      const now = sortedNames(), moved = classes.filter((c) => createdAt[c.name] !== now.indexOf(c.name));
+      warn.innerHTML = !moved.length
+        ? (classes.length > 1 ? "no index has moved yet — add a class whose name sorts earlier" : "add a second class whose name sorts earlier, e.g. “bolt” after “washer”")
+        : moved.map((c) => `<span class="f">silent change:</span> files written when “${esc(c.name)}” was ${createdAt[c.name]} now read as “${esc(now[createdAt[c.name]])}”`).join("<br>") +
+          (fmt === "yolo" ? "" : "<br>VOC carries names, so it survives; YOLO is where this breaks.");
+    }
+  }
+  function touched() {
+    const el = document.getElementById("ea-saved"); el.textContent = "editing…";
+    clearTimeout(saveT); saveT = setTimeout(() => { el.textContent = "saved"; }, 400);
+    all();
+  }
+  function all() { draw(); renderClasses(); renderFilm(); renderExport(); }
+
+  function addClass(name) {
+    let i = classes.findIndex((c) => c.name === name);
+    if (i < 0) { classes.push({ name }); i = classes.length - 1; createdAt[name] = sortedNames().indexOf(name); }
+    return i;
+  }
+  function askName() { nameForm.hidden = false; nameIn.value = ""; nameIn.focus(); }
+  nameForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const n = nameIn.value.trim().replace(/\s+/g, "_");
+    if (!n || !pending) return;
+    pending.c = addClass(n); cur = pending.c; images[at].boxes.push(pending);
+    sel = images[at].boxes.length - 1; pending = null; wantNew = false; nameForm.hidden = true; stage.focus({ preventScroll: true }); touched();
+  });
+  nameIn.addEventListener("keydown", (e) => { if (e.key === "Escape") { pending = null; nameForm.hidden = true; stage.focus({ preventScroll: true }); all(); } });
+
+  const local = (e) => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * W / r.width, (e.clientY - r.top) * H / r.height]; };
+  const hitBox = (x, y) => { const bs = images[at].boxes; for (let i = bs.length - 1; i >= 0; i--) { const b = bs[i]; if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) return i; } return -1; };
+  cv.addEventListener("pointerdown", (e) => {
+    if (pending) return;
+    stage.focus({ preventScroll: true }); const [x, y] = local(e); cv.setPointerCapture(e.pointerId);
+    drag = { x, y, box: null, hit: hitBox(x, y) };
+  });
+  cv.addEventListener("pointermove", (e) => {
+    if (!drag) return; const [x, y] = local(e);
+    if (Math.abs(x - drag.x) + Math.abs(y - drag.y) < 6 && !drag.box) return;
+    const cx = Math.max(0, Math.min(W, x)), cy = Math.max(0, Math.min(H, y));
+    drag.box = { x: Math.min(drag.x, cx), y: Math.min(drag.y, cy), w: Math.abs(cx - drag.x), h: Math.abs(cy - drag.y), c: wantNew ? -1 : cur };
+    draw();
+  });
+  cv.addEventListener("pointerup", () => {
+    if (!drag) return; const d = drag; drag = null;
+    if (!d.box) { sel = d.hit; all(); return; }
+    if (d.box.w < 6 || d.box.h < 6) { all(); return; }
+    if (cur < 0 || wantNew) { pending = { ...d.box, c: -1 }; draw(); askName(); return; }
+    images[at].boxes.push(d.box); sel = images[at].boxes.length - 1; touched();
+  });
+  cv.addEventListener("pointercancel", () => { drag = null; draw(); });
+
+  function act(a) {
+    const im = images[at];
+    if (a === "del" && sel >= 0) { im.boxes.splice(sel, 1); sel = -1; touched(); }
+    else if (a === "copy" && at > 0) { im.boxes.push(...images[at - 1].boxes.map((b) => ({ ...b }))); sel = -1; touched(); }
+    else if (a === "review") {
+      im.reviewed = true;
+      const next = images.findIndex((x, i) => !x.reviewed && i !== at);
+      if (next >= 0) { at = next; sel = -1; }
+      touched();
+    }
+  }
+  stage.addEventListener("keydown", (e) => {
+    if (e.target !== stage) return;
+    const k = e.key;
+    if ((e.ctrlKey || e.metaKey) && (k === "d" || k === "D")) { e.preventDefault(); act("copy"); }
+    else if (k === "Delete" || k === "Backspace") { e.preventDefault(); act("del"); }
+    else if (k === "r" || k === "R") { e.preventDefault(); act("review"); }
+    else if (/^[1-9]$/.test(k) && +k <= classes.length) {
+      e.preventDefault(); const c = +k - 1;
+      if (sel >= 0) { images[at].boxes[sel].c = c; touched(); } else { cur = c; wantNew = false; all(); }
+    }
+    else if (k === "ArrowRight" || k === "ArrowLeft") { e.preventDefault(); at = (at + (k === "ArrowRight" ? 1 : 2)) % 3; sel = -1; all(); }
+    else if (k === "Escape") { sel = -1; all(); }
+  });
+  root.querySelector(".ea-btns").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { act(b.dataset.a); stage.focus({ preventScroll: true }); } });
+  document.getElementById("ea-film").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { at = +b.dataset.i; sel = -1; pending = null; nameForm.hidden = true; all(); } });
+  document.getElementById("ea-classes").addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.c === "new") wantNew = true;
+    else { const c = +b.dataset.c; if (sel >= 0) { images[at].boxes[sel].c = c; touched(); } cur = c; wantNew = false; }
+    all(); stage.focus({ preventScroll: true });
+  });
+  const seg = (id, set) => document.getElementById(id).addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    document.querySelectorAll(`#${id} button`).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    set(b.dataset.k); renderExport();
+  });
+  seg("ea-fmt", (k) => { fmt = k; });
+  seg("ea-idx", (k) => { mode = k; });
+  all();
+})();
+
 </script>
 </body>
 </html>
